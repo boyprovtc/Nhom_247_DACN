@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
-namespace Nhom_247
+using MySql.Data.MySqlClient;
+namespace Nhom_247.DBContext
 {
-    internal class Datacontext
+    internal class DataConnect
     {
+
     }
 }

@@ -30,33 +30,35 @@
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.adminToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.logOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.nhanVienToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pnMain = new System.Windows.Forms.FlowLayoutPanel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvMovie = new System.Windows.Forms.DataGridView();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.dgvFood = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.logOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMovie)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvFood)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.adminToolStripMenuItem,
-            this.logOutToolStripMenuItem});
+            this.logOutToolStripMenuItem,
+            this.nhanVienToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1629, 24);
@@ -69,6 +71,20 @@
             this.adminToolStripMenuItem.Size = new System.Drawing.Size(55, 20);
             this.adminToolStripMenuItem.Text = "Admin";
             this.adminToolStripMenuItem.Click += new System.EventHandler(this.adminToolStripMenuItem_Click);
+            // 
+            // logOutToolStripMenuItem
+            // 
+            this.logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
+            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
+            this.logOutToolStripMenuItem.Text = "LogOut";
+            this.logOutToolStripMenuItem.Click += new System.EventHandler(this.logOutToolStripMenuItem_Click);
+            // 
+            // nhanVienToolStripMenuItem
+            // 
+            this.nhanVienToolStripMenuItem.Name = "nhanVienToolStripMenuItem";
+            this.nhanVienToolStripMenuItem.Size = new System.Drawing.Size(74, 20);
+            this.nhanVienToolStripMenuItem.Text = "Nhan Vien";
+            this.nhanVienToolStripMenuItem.Click += new System.EventHandler(this.nhanVienToolStripMenuItem_Click);
             // 
             // pnMain
             // 
@@ -98,20 +114,20 @@
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label1.Location = new System.Drawing.Point(133, 13);
+            this.label1.Location = new System.Drawing.Point(143, 13);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(199, 42);
+            this.label1.Size = new System.Drawing.Size(178, 42);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Màng Hình";
+            this.label1.Text = "Màn Hình";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // dataGridView1
+            // dgvMovie
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(43, 276);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(291, 280);
-            this.dataGridView1.TabIndex = 5;
+            this.dgvMovie.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvMovie.Location = new System.Drawing.Point(43, 276);
+            this.dgvMovie.Name = "dgvMovie";
+            this.dgvMovie.Size = new System.Drawing.Size(291, 280);
+            this.dgvMovie.TabIndex = 5;
             // 
             // comboBox1
             // 
@@ -173,14 +189,14 @@
             this.tableLayoutPanel2.Size = new System.Drawing.Size(310, 50);
             this.tableLayoutPanel2.TabIndex = 10;
             // 
-            // dataGridView2
+            // dgvFood
             // 
-            this.dataGridView2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(1115, 276);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(261, 280);
-            this.dataGridView2.TabIndex = 5;
+            this.dgvFood.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvFood.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvFood.Location = new System.Drawing.Point(1115, 276);
+            this.dgvFood.Name = "dgvFood";
+            this.dgvFood.Size = new System.Drawing.Size(261, 280);
+            this.dgvFood.TabIndex = 5;
             // 
             // button1
             // 
@@ -201,13 +217,6 @@
             this.button2.Text = "In Vé";
             this.button2.UseVisualStyleBackColor = true;
             // 
-            // logOutToolStripMenuItem
-            // 
-            this.logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
-            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
-            this.logOutToolStripMenuItem.Text = "LogOut";
-            this.logOutToolStripMenuItem.Click += new System.EventHandler(this.logOutToolStripMenuItem_Click);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -220,8 +229,8 @@
             this.Controls.Add(this.numericUpDown1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.dataGridView2);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvFood);
+            this.Controls.Add(this.dgvMovie);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.pnMain);
             this.Controls.Add(this.menuStrip1);
@@ -234,11 +243,11 @@
             this.menuStrip1.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMovie)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvFood)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -250,17 +259,18 @@
         private System.Windows.Forms.FlowLayoutPanel pnMain;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvMovie;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.NumericUpDown numericUpDown1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridView dgvFood;
         private System.Windows.Forms.ToolStripMenuItem adminToolStripMenuItem;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.ToolStripMenuItem logOutToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem nhanVienToolStripMenuItem;
     }
 }

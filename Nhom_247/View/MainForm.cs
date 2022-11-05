@@ -13,6 +13,8 @@ namespace Nhom_247
 {
     public partial class MainForm : Form
     {
+        string conStr = "Server = localhost; Database = 247_rapphim; Port = 3306; User ID = root; Password = ";
+       
         public MainForm()
         {
             InitializeComponent();
@@ -22,7 +24,6 @@ namespace Nhom_247
         {
             pnMain.Size = new Size (465,510);
             pnMain.BorderStyle = BorderStyle.FixedSingle;
-            
             WindowState = FormWindowState.Maximized;
             int Top = 0; //Vi tri Top
             for (char i = 'A'; i <= 'K'; i++)
@@ -53,6 +54,9 @@ namespace Nhom_247
                 }
                 Top += 50;
             }
+
+           
+
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -72,7 +76,7 @@ namespace Nhom_247
             if (MessageBox.Show("Bạn Có Muốn Thoát không", "Thông Báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
             {
 
-                this.Close();
+                this.Dispose();
             }
         }
 
@@ -84,6 +88,13 @@ namespace Nhom_247
                 login.Show();
                 this.Hide();
             }
+        }
+
+        private void nhanVienToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            NhanVien nv = new NhanVien();
+            nv.Show();
+            this.Hide();
         }
     }
 }

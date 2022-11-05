@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
             this.tbxUserName = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tbxPass = new System.Windows.Forms.TextBox();
             this.lblUserName = new System.Windows.Forms.Label();
             this.lblPassWord = new System.Windows.Forms.Label();
             this.btnResigter = new System.Windows.Forms.Button();
@@ -48,16 +48,16 @@
             this.tbxUserName.Size = new System.Drawing.Size(250, 31);
             this.tbxUserName.TabIndex = 0;
             // 
-            // textBox1
+            // tbxPass
             // 
-            this.textBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox1.BackColor = System.Drawing.Color.Azure;
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(382, 242);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(250, 31);
-            this.textBox1.TabIndex = 0;
+            this.tbxPass.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tbxPass.BackColor = System.Drawing.Color.Azure;
+            this.tbxPass.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tbxPass.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbxPass.Location = new System.Drawing.Point(382, 242);
+            this.tbxPass.Name = "tbxPass";
+            this.tbxPass.Size = new System.Drawing.Size(250, 31);
+            this.tbxPass.TabIndex = 0;
             // 
             // lblUserName
             // 
@@ -101,6 +101,7 @@
             this.btnLogin.TabIndex = 3;
             this.btnLogin.Text = "Login";
             this.btnLogin.UseVisualStyleBackColor = true;
+            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
             // Login
             // 
@@ -114,7 +115,7 @@
             this.Controls.Add(this.btnResigter);
             this.Controls.Add(this.lblPassWord);
             this.Controls.Add(this.lblUserName);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.tbxPass);
             this.Controls.Add(this.tbxUserName);
             this.DoubleBuffered = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -131,7 +132,7 @@
         #endregion
 
         private System.Windows.Forms.TextBox tbxUserName;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tbxPass;
         private System.Windows.Forms.Label lblUserName;
         private System.Windows.Forms.Label lblPassWord;
         private System.Windows.Forms.Button btnResigter;

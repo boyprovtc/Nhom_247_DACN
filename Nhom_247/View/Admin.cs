@@ -15,6 +15,8 @@ namespace Nhom_247
 {
     public partial class Admin : Form
     {
+        string conStr = "Server = localhost; Database = 247_rapphim; Port = 3306; User ID = root; Password = ";
+       
         public Admin()
         {
             InitializeComponent();
@@ -25,6 +27,8 @@ namespace Nhom_247
             WindowState = FormWindowState.Maximized;
             dtp.Format = DateTimePickerFormat.Time;
             dtp.ShowUpDown = true;
+           
+            
         }
        
 
@@ -36,6 +40,7 @@ namespace Nhom_247
                 MainForm mF = new MainForm();
                 mF.Show();
                 this.Hide();
+
             }
         }
 

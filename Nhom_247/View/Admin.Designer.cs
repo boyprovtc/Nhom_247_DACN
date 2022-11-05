@@ -67,23 +67,23 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.DeleteFood = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvFood = new System.Windows.Forms.DataGridView();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.gbSuatChieu = new System.Windows.Forms.GroupBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.label3 = new System.Windows.Forms.Label();
-            this.dtp = new System.Windows.Forms.DateTimePicker();
-            this.label5 = new System.Windows.Forms.Label();
             this.btnAdd = new System.Windows.Forms.Button();
+            this.dtp = new System.Windows.Forms.DateTimePicker();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.dgvSuatChieu = new System.Windows.Forms.DataGridView();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.gbTicket.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTicket)).BeginInit();
             this.gbMovie.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMovie)).BeginInit();
             this.gbFastFood.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvFood)).BeginInit();
             this.gbSuatChieu.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSuatChieu)).BeginInit();
             this.SuspendLayout();
             // 
             // HelloLable
@@ -271,6 +271,7 @@
             // 
             // btnImage
             // 
+            this.btnImage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnImage.Location = new System.Drawing.Point(541, 162);
             this.btnImage.Name = "btnImage";
             this.btnImage.Size = new System.Drawing.Size(109, 30);
@@ -280,6 +281,7 @@
             // 
             // btnDeleteMovie
             // 
+            this.btnDeleteMovie.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnDeleteMovie.Location = new System.Drawing.Point(541, 198);
             this.btnDeleteMovie.Name = "btnDeleteMovie";
             this.btnDeleteMovie.Size = new System.Drawing.Size(109, 31);
@@ -292,7 +294,7 @@
             this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.button3.Location = new System.Drawing.Point(548, 64);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(109, 26);
+            this.button3.Size = new System.Drawing.Size(102, 26);
             this.button3.TabIndex = 4;
             this.button3.Text = "Hủy";
             this.button3.UseVisualStyleBackColor = true;
@@ -312,7 +314,7 @@
             this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.button2.Location = new System.Drawing.Point(548, 31);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(109, 27);
+            this.button2.Size = new System.Drawing.Size(102, 27);
             this.button2.TabIndex = 4;
             this.button2.Text = "Xác nhận";
             this.button2.UseVisualStyleBackColor = true;
@@ -404,7 +406,7 @@
             this.gbFastFood.Controls.Add(this.label4);
             this.gbFastFood.Controls.Add(this.label6);
             this.gbFastFood.Controls.Add(this.DeleteFood);
-            this.gbFastFood.Controls.Add(this.dataGridView1);
+            this.gbFastFood.Controls.Add(this.dgvFood);
             this.gbFastFood.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbFastFood.Location = new System.Drawing.Point(1200, 349);
             this.gbFastFood.Name = "gbFastFood";
@@ -483,16 +485,16 @@
             this.DeleteFood.Text = "Xóa";
             this.DeleteFood.UseVisualStyleBackColor = true;
             // 
-            // dataGridView1
+            // dgvFood
             // 
-            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.dgvFood.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(6, 236);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(396, 73);
-            this.dataGridView1.TabIndex = 0;
+            this.dgvFood.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvFood.Location = new System.Drawing.Point(6, 236);
+            this.dgvFood.Name = "dgvFood";
+            this.dgvFood.Size = new System.Drawing.Size(396, 73);
+            this.dgvFood.TabIndex = 0;
             // 
             // gbSuatChieu
             // 
@@ -501,7 +503,7 @@
             this.gbSuatChieu.Controls.Add(this.btnAdd);
             this.gbSuatChieu.Controls.Add(this.dtp);
             this.gbSuatChieu.Controls.Add(this.comboBox1);
-            this.gbSuatChieu.Controls.Add(this.dataGridView2);
+            this.gbSuatChieu.Controls.Add(this.dgvSuatChieu);
             this.gbSuatChieu.Controls.Add(this.label5);
             this.gbSuatChieu.Controls.Add(this.label3);
             this.gbSuatChieu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -512,32 +514,14 @@
             this.gbSuatChieu.TabStop = false;
             this.gbSuatChieu.Text = "Cài đặt suất chiếu";
             // 
-            // comboBox1
+            // btnAdd
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(139, 39);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(291, 28);
-            this.comboBox1.TabIndex = 1;
-            // 
-            // dataGridView2
-            // 
-            this.dataGridView2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(583, 11);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(1013, 252);
-            this.dataGridView2.TabIndex = 0;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(9, 42);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(94, 20);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Chọn phim";
+            this.btnAdd.Location = new System.Drawing.Point(437, 88);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(33, 26);
+            this.btnAdd.TabIndex = 3;
+            this.btnAdd.Text = "+";
+            this.btnAdd.UseVisualStyleBackColor = true;
             // 
             // dtp
             // 
@@ -546,6 +530,24 @@
             this.dtp.Size = new System.Drawing.Size(291, 26);
             this.dtp.TabIndex = 2;
             this.dtp.Value = new System.DateTime(2022, 9, 22, 8, 42, 41, 0);
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(139, 39);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(291, 28);
+            this.comboBox1.TabIndex = 1;
+            // 
+            // dgvSuatChieu
+            // 
+            this.dgvSuatChieu.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvSuatChieu.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvSuatChieu.Location = new System.Drawing.Point(583, 11);
+            this.dgvSuatChieu.Name = "dgvSuatChieu";
+            this.dgvSuatChieu.Size = new System.Drawing.Size(1013, 252);
+            this.dgvSuatChieu.TabIndex = 0;
             // 
             // label5
             // 
@@ -556,14 +558,14 @@
             this.label5.TabIndex = 0;
             this.label5.Text = "Chọn giờ chiếu";
             // 
-            // btnAdd
+            // label3
             // 
-            this.btnAdd.Location = new System.Drawing.Point(437, 88);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(33, 26);
-            this.btnAdd.TabIndex = 3;
-            this.btnAdd.Text = "+";
-            this.btnAdd.UseVisualStyleBackColor = true;
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(9, 42);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(94, 20);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Chọn phim";
             // 
             // Admin
             // 
@@ -587,10 +589,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvMovie)).EndInit();
             this.gbFastFood.ResumeLayout(false);
             this.gbFastFood.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvFood)).EndInit();
             this.gbSuatChieu.ResumeLayout(false);
             this.gbSuatChieu.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSuatChieu)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -618,7 +620,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
         private System.Windows.Forms.DataGridView dgvMovie;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvFood;
         private System.Windows.Forms.Button btnDeleteMovie;
         private System.Windows.Forms.Button btnImage;
         private System.Windows.Forms.Button button3;
@@ -640,7 +642,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.GroupBox gbSuatChieu;
-        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridView dgvSuatChieu;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnAdd;
