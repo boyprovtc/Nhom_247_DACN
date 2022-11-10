@@ -45,6 +45,10 @@
             this.dgvFood = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.tbxCost = new System.Windows.Forms.TextBox();
+            this.tbxAdminCode = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.btnConfirm = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMovie)).BeginInit();
@@ -217,11 +221,48 @@
             this.button2.Text = "In Vé";
             this.button2.UseVisualStyleBackColor = true;
             // 
+            // tbxCost
+            // 
+            this.tbxCost.Location = new System.Drawing.Point(388, 276);
+            this.tbxCost.Name = "tbxCost";
+            this.tbxCost.Size = new System.Drawing.Size(100, 20);
+            this.tbxCost.TabIndex = 12;
+            // 
+            // tbxAdminCode
+            // 
+            this.tbxAdminCode.Location = new System.Drawing.Point(160, 35);
+            this.tbxAdminCode.Name = "tbxAdminCode";
+            this.tbxAdminCode.Size = new System.Drawing.Size(100, 20);
+            this.tbxAdminCode.TabIndex = 13;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(24, 38);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(130, 13);
+            this.label5.TabIndex = 14;
+            this.label5.Text = "Nhập Code Admin để vào";
+            // 
+            // btnConfirm
+            // 
+            this.btnConfirm.Location = new System.Drawing.Point(288, 36);
+            this.btnConfirm.Name = "btnConfirm";
+            this.btnConfirm.Size = new System.Drawing.Size(65, 19);
+            this.btnConfirm.TabIndex = 15;
+            this.btnConfirm.Text = "Xac Nhan";
+            this.btnConfirm.UseVisualStyleBackColor = true;
+            this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1629, 744);
+            this.Controls.Add(this.btnConfirm);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.tbxAdminCode);
+            this.Controls.Add(this.tbxCost);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.tableLayoutPanel2);
@@ -272,5 +313,9 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.ToolStripMenuItem logOutToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem nhanVienToolStripMenuItem;
+        private System.Windows.Forms.TextBox tbxCost;
+        private System.Windows.Forms.TextBox tbxAdminCode;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button btnConfirm;
     }
 }

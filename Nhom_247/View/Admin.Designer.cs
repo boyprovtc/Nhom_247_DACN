@@ -32,13 +32,13 @@
             this.gbTicket = new System.Windows.Forms.GroupBox();
             this.btnDeleteTicket = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
-            this.btnConfirm = new System.Windows.Forms.Button();
+            this.btnTicketAdd = new System.Windows.Forms.Button();
             this.lbticketnow = new System.Windows.Forms.Label();
             this.dgvTicket = new System.Windows.Forms.DataGridView();
             this.tbxDiscount = new System.Windows.Forms.TextBox();
             this.tbxService = new System.Windows.Forms.TextBox();
-            this.tbxPremium = new System.Windows.Forms.TextBox();
-            this.tbxticket = new System.Windows.Forms.TextBox();
+            this.tbxticketprice = new System.Windows.Forms.TextBox();
+            this.tbxtickettype = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.lblDiscount = new System.Windows.Forms.Label();
             this.lblService = new System.Windows.Forms.Label();
@@ -49,7 +49,7 @@
             this.btnDeleteMovie = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.lblMovieNow = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btn_addMovie = new System.Windows.Forms.Button();
             this.dgvMovie = new System.Windows.Forms.DataGridView();
             this.tbxImage = new System.Windows.Forms.TextBox();
             this.tbxMovieName = new System.Windows.Forms.TextBox();
@@ -57,13 +57,13 @@
             this.lblImage = new System.Windows.Forms.Label();
             this.lblKind = new System.Windows.Forms.Label();
             this.lblDicribe = new System.Windows.Forms.Label();
-            this.tbxDiscribe = new System.Windows.Forms.TextBox();
+            this.tbxMovieAbout = new System.Windows.Forms.TextBox();
             this.gbFastFood = new System.Windows.Forms.GroupBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.tbxFoodPrice = new System.Windows.Forms.TextBox();
+            this.btnFood_add = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.tbxFoodName = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.DeleteFood = new System.Windows.Forms.Button();
@@ -102,13 +102,13 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.gbTicket.Controls.Add(this.btnDeleteTicket);
             this.gbTicket.Controls.Add(this.btnCancel);
-            this.gbTicket.Controls.Add(this.btnConfirm);
+            this.gbTicket.Controls.Add(this.btnTicketAdd);
             this.gbTicket.Controls.Add(this.lbticketnow);
             this.gbTicket.Controls.Add(this.dgvTicket);
             this.gbTicket.Controls.Add(this.tbxDiscount);
             this.gbTicket.Controls.Add(this.tbxService);
-            this.gbTicket.Controls.Add(this.tbxPremium);
-            this.gbTicket.Controls.Add(this.tbxticket);
+            this.gbTicket.Controls.Add(this.tbxticketprice);
+            this.gbTicket.Controls.Add(this.tbxtickettype);
             this.gbTicket.Controls.Add(this.label1);
             this.gbTicket.Controls.Add(this.lblDiscount);
             this.gbTicket.Controls.Add(this.lblService);
@@ -140,14 +140,15 @@
             this.btnCancel.Text = "Hủy";
             this.btnCancel.UseVisualStyleBackColor = true;
             // 
-            // btnConfirm
+            // btnTicketAdd
             // 
-            this.btnConfirm.Location = new System.Drawing.Point(405, 31);
-            this.btnConfirm.Name = "btnConfirm";
-            this.btnConfirm.Size = new System.Drawing.Size(110, 27);
-            this.btnConfirm.TabIndex = 4;
-            this.btnConfirm.Text = "Xác nhận";
-            this.btnConfirm.UseVisualStyleBackColor = true;
+            this.btnTicketAdd.Location = new System.Drawing.Point(405, 31);
+            this.btnTicketAdd.Name = "btnTicketAdd";
+            this.btnTicketAdd.Size = new System.Drawing.Size(110, 27);
+            this.btnTicketAdd.TabIndex = 4;
+            this.btnTicketAdd.Text = "Save";
+            this.btnTicketAdd.UseVisualStyleBackColor = true;
+            this.btnTicketAdd.Click += new System.EventHandler(this.btnTicketAdd_Click);
             // 
             // lbticketnow
             // 
@@ -164,6 +165,7 @@
             this.dgvTicket.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvTicket.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvTicket.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTicket.Location = new System.Drawing.Point(6, 236);
             this.dgvTicket.Name = "dgvTicket";
@@ -184,19 +186,19 @@
             this.tbxService.Size = new System.Drawing.Size(219, 24);
             this.tbxService.TabIndex = 1;
             // 
-            // tbxPremium
+            // tbxticketprice
             // 
-            this.tbxPremium.Location = new System.Drawing.Point(159, 64);
-            this.tbxPremium.Name = "tbxPremium";
-            this.tbxPremium.Size = new System.Drawing.Size(219, 24);
-            this.tbxPremium.TabIndex = 1;
+            this.tbxticketprice.Location = new System.Drawing.Point(159, 64);
+            this.tbxticketprice.Name = "tbxticketprice";
+            this.tbxticketprice.Size = new System.Drawing.Size(219, 24);
+            this.tbxticketprice.TabIndex = 1;
             // 
-            // tbxticket
+            // tbxtickettype
             // 
-            this.tbxticket.Location = new System.Drawing.Point(159, 34);
-            this.tbxticket.Name = "tbxticket";
-            this.tbxticket.Size = new System.Drawing.Size(219, 24);
-            this.tbxticket.TabIndex = 1;
+            this.tbxtickettype.Location = new System.Drawing.Point(159, 34);
+            this.tbxtickettype.Name = "tbxtickettype";
+            this.tbxtickettype.Size = new System.Drawing.Size(219, 24);
+            this.tbxtickettype.TabIndex = 1;
             // 
             // label1
             // 
@@ -230,18 +232,18 @@
             this.lbpremium.AutoSize = true;
             this.lbpremium.Location = new System.Drawing.Point(7, 72);
             this.lbpremium.Name = "lbpremium";
-            this.lbpremium.Size = new System.Drawing.Size(126, 18);
+            this.lbpremium.Size = new System.Drawing.Size(56, 18);
             this.lbpremium.TabIndex = 0;
-            this.lbpremium.Text = "Giá vé premium";
+            this.lbpremium.Text = "Giá vé";
             // 
             // lbticket
             // 
             this.lbticket.AutoSize = true;
             this.lbticket.Location = new System.Drawing.Point(7, 37);
             this.lbticket.Name = "lbticket";
-            this.lbticket.Size = new System.Drawing.Size(112, 18);
+            this.lbticket.Size = new System.Drawing.Size(64, 18);
             this.lbticket.TabIndex = 0;
-            this.lbticket.Text = "Giá vé thường";
+            this.lbticket.Text = "Loại Vé";
             // 
             // gbMovie
             // 
@@ -252,7 +254,7 @@
             this.gbMovie.Controls.Add(this.btnDeleteMovie);
             this.gbMovie.Controls.Add(this.button3);
             this.gbMovie.Controls.Add(this.lblMovieNow);
-            this.gbMovie.Controls.Add(this.button2);
+            this.gbMovie.Controls.Add(this.btn_addMovie);
             this.gbMovie.Controls.Add(this.dgvMovie);
             this.gbMovie.Controls.Add(this.tbxImage);
             this.gbMovie.Controls.Add(this.tbxMovieName);
@@ -260,7 +262,7 @@
             this.gbMovie.Controls.Add(this.lblImage);
             this.gbMovie.Controls.Add(this.lblKind);
             this.gbMovie.Controls.Add(this.lblDicribe);
-            this.gbMovie.Controls.Add(this.tbxDiscribe);
+            this.gbMovie.Controls.Add(this.tbxMovieAbout);
             this.gbMovie.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbMovie.Location = new System.Drawing.Point(538, 349);
             this.gbMovie.Name = "gbMovie";
@@ -309,21 +311,23 @@
             this.lblMovieNow.TabIndex = 3;
             this.lblMovieNow.Text = "Phim Hiện Tại";
             // 
-            // button2
+            // btn_addMovie
             // 
-            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button2.Location = new System.Drawing.Point(548, 31);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(102, 27);
-            this.button2.TabIndex = 4;
-            this.button2.Text = "Xác nhận";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btn_addMovie.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_addMovie.Location = new System.Drawing.Point(548, 31);
+            this.btn_addMovie.Name = "btn_addMovie";
+            this.btn_addMovie.Size = new System.Drawing.Size(102, 27);
+            this.btn_addMovie.TabIndex = 4;
+            this.btn_addMovie.Text = "Save";
+            this.btn_addMovie.UseVisualStyleBackColor = true;
+            this.btn_addMovie.Click += new System.EventHandler(this.btn_addMovie_Click);
             // 
             // dgvMovie
             // 
             this.dgvMovie.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvMovie.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvMovie.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvMovie.Location = new System.Drawing.Point(6, 236);
             this.dgvMovie.Name = "dgvMovie";
@@ -384,25 +388,25 @@
             this.lblDicribe.TabIndex = 0;
             this.lblDicribe.Text = "Giới thiệu phim";
             // 
-            // tbxDiscribe
+            // tbxMovieAbout
             // 
-            this.tbxDiscribe.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.tbxMovieAbout.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbxDiscribe.Location = new System.Drawing.Point(159, 66);
-            this.tbxDiscribe.Multiline = true;
-            this.tbxDiscribe.Name = "tbxDiscribe";
-            this.tbxDiscribe.Size = new System.Drawing.Size(363, 65);
-            this.tbxDiscribe.TabIndex = 1;
+            this.tbxMovieAbout.Location = new System.Drawing.Point(159, 66);
+            this.tbxMovieAbout.Multiline = true;
+            this.tbxMovieAbout.Name = "tbxMovieAbout";
+            this.tbxMovieAbout.Size = new System.Drawing.Size(363, 65);
+            this.tbxMovieAbout.TabIndex = 1;
             // 
             // gbFastFood
             // 
             this.gbFastFood.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.gbFastFood.Controls.Add(this.textBox2);
-            this.gbFastFood.Controls.Add(this.button1);
+            this.gbFastFood.Controls.Add(this.tbxFoodPrice);
+            this.gbFastFood.Controls.Add(this.btnFood_add);
             this.gbFastFood.Controls.Add(this.button4);
             this.gbFastFood.Controls.Add(this.label2);
-            this.gbFastFood.Controls.Add(this.textBox4);
+            this.gbFastFood.Controls.Add(this.tbxFoodName);
             this.gbFastFood.Controls.Add(this.label4);
             this.gbFastFood.Controls.Add(this.label6);
             this.gbFastFood.Controls.Add(this.DeleteFood);
@@ -415,21 +419,22 @@
             this.gbFastFood.TabStop = false;
             this.gbFastFood.Text = "Chỉnh sửa thức ăn nhanh";
             // 
-            // textBox2
+            // tbxFoodPrice
             // 
-            this.textBox2.Location = new System.Drawing.Point(158, 96);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(128, 24);
-            this.textBox2.TabIndex = 12;
+            this.tbxFoodPrice.Location = new System.Drawing.Point(158, 96);
+            this.tbxFoodPrice.Name = "tbxFoodPrice";
+            this.tbxFoodPrice.Size = new System.Drawing.Size(128, 24);
+            this.tbxFoodPrice.TabIndex = 12;
             // 
-            // button1
+            // btnFood_add
             // 
-            this.button1.Location = new System.Drawing.Point(304, 31);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(94, 27);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Xác nhận";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnFood_add.Location = new System.Drawing.Point(304, 31);
+            this.btnFood_add.Name = "btnFood_add";
+            this.btnFood_add.Size = new System.Drawing.Size(94, 27);
+            this.btnFood_add.TabIndex = 4;
+            this.btnFood_add.Text = "Save";
+            this.btnFood_add.UseVisualStyleBackColor = true;
+            this.btnFood_add.Click += new System.EventHandler(this.btnFood_add_Click);
             // 
             // button4
             // 
@@ -451,12 +456,12 @@
             this.label2.TabIndex = 3;
             this.label2.Text = "Thức ăn hiện tại";
             // 
-            // textBox4
+            // tbxFoodName
             // 
-            this.textBox4.Location = new System.Drawing.Point(158, 32);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(128, 24);
-            this.textBox4.TabIndex = 14;
+            this.tbxFoodName.Location = new System.Drawing.Point(158, 32);
+            this.tbxFoodName.Name = "tbxFoodName";
+            this.tbxFoodName.Size = new System.Drawing.Size(128, 24);
+            this.tbxFoodName.TabIndex = 14;
             // 
             // label4
             // 
@@ -490,6 +495,7 @@
             this.dgvFood.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvFood.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvFood.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvFood.Location = new System.Drawing.Point(6, 236);
             this.dgvFood.Name = "dgvFood";
@@ -543,6 +549,7 @@
             // 
             this.dgvSuatChieu.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvSuatChieu.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvSuatChieu.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvSuatChieu.Location = new System.Drawing.Point(583, 11);
             this.dgvSuatChieu.Name = "dgvSuatChieu";
@@ -604,13 +611,13 @@
         private System.Windows.Forms.GroupBox gbTicket;
         private System.Windows.Forms.GroupBox gbMovie;
         private System.Windows.Forms.GroupBox gbFastFood;
-        private System.Windows.Forms.TextBox tbxPremium;
-        private System.Windows.Forms.TextBox tbxticket;
+        private System.Windows.Forms.TextBox tbxticketprice;
+        private System.Windows.Forms.TextBox tbxtickettype;
         private System.Windows.Forms.Label lbpremium;
         private System.Windows.Forms.Label lbticket;
         private System.Windows.Forms.Button btnDeleteTicket;
         private System.Windows.Forms.Button btnCancel;
-        private System.Windows.Forms.Button btnConfirm;
+        private System.Windows.Forms.Button btnTicketAdd;
         private System.Windows.Forms.Label lbticketnow;
         private System.Windows.Forms.DataGridView dgvTicket;
         private System.Windows.Forms.TextBox tbxService;
@@ -625,20 +632,20 @@
         private System.Windows.Forms.Button btnImage;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Label lblMovieNow;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btn_addMovie;
         private System.Windows.Forms.TextBox tbxMovieName;
         private System.Windows.Forms.Label lblMovieName;
         private System.Windows.Forms.Label lblKind;
         private System.Windows.Forms.Label lblDicribe;
-        private System.Windows.Forms.TextBox tbxDiscribe;
+        private System.Windows.Forms.TextBox tbxMovieAbout;
         private System.Windows.Forms.Button DeleteFood;
         private System.Windows.Forms.TextBox tbxImage;
         private System.Windows.Forms.Label lblImage;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox tbxFoodPrice;
+        private System.Windows.Forms.Button btnFood_add;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox tbxFoodName;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.GroupBox gbSuatChieu;
