@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace Nhom_247.Controller
 {
-    class Movie_Controller
+     class Room_Controller
     {
         public static MySqlConnection GetConnection()
         {
@@ -27,19 +27,18 @@ namespace Nhom_247.Controller
             }
             return conn;
         }
-        public static void add_Movie(Movie_Model movie)
+        public static void add_Room(Room_Model room)
         {
-            string conStr = "INSERT INTO movie VALUES (NULL, @MovieName, @Description)";
+            string conStr = "INSERT INTO room VALUES (NULL, @RoomNumber)";
             MySqlConnection conn = GetConnection();
             MySqlCommand cmd = new MySqlCommand(conStr, conn);
             cmd.CommandType = CommandType.Text;
-            cmd.Parameters.Add("@MovieName", MySqlDbType.VarChar).Value = movie.MovieName;
-            cmd.Parameters.Add("@Description", MySqlDbType.VarChar).Value = movie.Description;
-           
+            cmd.Parameters.Add("@RoomNumber", MySqlDbType.VarChar).Value = room.RoomNumber;
+            
             try
             {
                 cmd.ExecuteNonQuery();
-              //  MessageBox.Show("Add done", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                // MessageBox.Show("Add done", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (MySqlException ex)
             {
@@ -49,42 +48,41 @@ namespace Nhom_247.Controller
             conn.Close();
 
         }
-        public static void update_Movie(Movie_Model movie, string id)
+        public static void update_Room(Room_Model room, string id)
         {
-            string conStr = "UPDATE movie SET MovieName = @MovieName, Description = @Description WHERE ID_Movie = @id";
+            string conStr = "UPDATE room SET RoomNumber = @RoomNumber WHERE ID_Room = @id";
             MySqlConnection conn = GetConnection();
             MySqlCommand cmd = new MySqlCommand(conStr, conn);
             cmd.CommandType = CommandType.Text;
             cmd.Parameters.Add("@id", MySqlDbType.VarChar).Value = id;
-            cmd.Parameters.Add("@MovieName", MySqlDbType.VarChar).Value = movie.MovieName;
-            cmd.Parameters.Add("@Description", MySqlDbType.VarChar).Value = movie.Description;
-         
+            cmd.Parameters.Add("@RoomNumber", MySqlDbType.VarChar).Value = room.RoomNumber;
             try
             {
                 cmd.ExecuteNonQuery();
-            //    MessageBox.Show("update done", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+         //       MessageBox.Show("update done", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (MySqlException ex)
             {
 
                 MessageBox.Show("Update failed \n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
             conn.Close();
 
         }
 
-        public static void Delete_Movie(string id)
+        public static void Delete_Room(string id)
         {
-            string conStr = "DELETE FROM movie WHERE ID_Movie = @ID";
+            string conStr = "DELETE FROM Room WHERE ID_Room = @id";
             MySqlConnection conn = GetConnection();
             MySqlCommand cmd = new MySqlCommand(conStr, conn);
             cmd.CommandType = CommandType.Text;
 
-            cmd.Parameters.Add("@ID", MySqlDbType.VarChar).Value = id;
+            cmd.Parameters.Add("@id", MySqlDbType.VarChar).Value = id;
             try
             {
                 cmd.ExecuteNonQuery();
-               // MessageBox.Show("Delete done", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+          //      MessageBox.Show("Delete done", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (MySqlException ex)
             {
@@ -94,7 +92,7 @@ namespace Nhom_247.Controller
             conn.Close();
         }
 
-        public static void DisplayNSearchMovie(string query, DataGridView dgvMovie)
+        public static void DisplayNSearch(string query, DataGridView dgvRoom)
         {
             string conStr = query;
             MySqlConnection conn = GetConnection();
@@ -102,9 +100,9 @@ namespace Nhom_247.Controller
             MySqlDataAdapter adp = new MySqlDataAdapter(cmd);
             DataTable tbl = new DataTable();
             adp.Fill(tbl);
-            dgvMovie.DataSource = tbl;
+            dgvRoom.DataSource = tbl;
             conn.Close();
         }
-       
+
     }
 }

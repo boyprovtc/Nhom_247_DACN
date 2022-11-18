@@ -50,41 +50,43 @@ namespace Nhom_247.Controller
             conn.Close();
         
         }
-        public static void update_NhanVien(NhanVien_Model nhanVien)
+        public static void update_NhanVien(NhanVien_Model nv, string id)
         {
-            string conStr = "UPDATE tbl_Nhanvien SET Name = @Name, Phone = @Phone, Gmail = @Gmail WHERE ID = @Id";
+            string conStr = "UPDATE tbl_nhanvien SET Name = @Name, Phone = @Phone, Gmail = @Gmail WHERE ID = @id";
             MySqlConnection conn = GetConnection();
             MySqlCommand cmd = new MySqlCommand(conStr, conn);
             cmd.CommandType = CommandType.Text;
-            cmd.Parameters.Add("@Name", MySqlDbType.VarChar).Value = nhanVien.Name;
-            cmd.Parameters.Add("@Phone", MySqlDbType.VarChar).Value = nhanVien.Phone;
-            cmd.Parameters.Add("@Gmail", MySqlDbType.VarChar).Value = nhanVien.Gmail;
+            cmd.Parameters.Add("@id", MySqlDbType.VarChar).Value = id;
+            cmd.Parameters.Add("@Name", MySqlDbType.VarChar).Value = nv.Name;
+            cmd.Parameters.Add("@Phone", MySqlDbType.VarChar).Value = nv.Phone;
+            cmd.Parameters.Add("@Gmail", MySqlDbType.VarChar).Value = nv.Gmail;
             try
             {
                 cmd.ExecuteNonQuery();
-                MessageBox.Show("update done", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);              
+            //    MessageBox.Show("update done", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);              
             }
             catch (MySqlException ex)
             {
 
                 MessageBox.Show("Update failed \n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            
             conn.Close();
 
         }
 
         public static void Delete_NhanVien(string id)
         {
-            string conStr = "DELETE FROM tbl_nhanvien WHERE ID = @Id";
+            string conStr = "DELETE FROM tbl_nhanvien WHERE ID = @id";
             MySqlConnection conn = GetConnection();
             MySqlCommand cmd = new MySqlCommand(conStr, conn);
             cmd.CommandType = CommandType.Text;
            
-            cmd.Parameters.Add("@Id", MySqlDbType.VarChar).Value = id;
+            cmd.Parameters.Add("@id", MySqlDbType.VarChar).Value = id;
             try
             {
                 cmd.ExecuteNonQuery();
-                MessageBox.Show("Delete done", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //    MessageBox.Show("Delete done", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (MySqlException ex)
             {
@@ -106,5 +108,6 @@ namespace Nhom_247.Controller
             conn.Close();
         }
 
+      
     }
 }

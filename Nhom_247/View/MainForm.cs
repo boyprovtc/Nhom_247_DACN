@@ -28,37 +28,37 @@ namespace Nhom_247
             WindowState = FormWindowState.Maximized;
             adminToolStripMenuItem.Enabled = false;
             tbxAdminCode.PasswordChar = '*';
-            //int Top = 0; //Vi tri Top
-            //for (int i = 1; i <= 2; i++)
-            //{
-            //    int Left = 0; //Vi tri Left
-            //    for (int j = 1; j <= 2 ; j++)
-            //    {
-            //        //Taoj 1 button mới
-            //        Button bt = new Button();
-            //        //Thêm thuộc tính
-            //        bt.Name = string.Format("bt{0}{1}", i, j);
-            //        bt.Tag = string.Format("[{0}{1}]", i, j);
-            //        bt.Text = string.Format("{0}{1}", i, j);
-            //        bt.Size = new Size(40, 40);
-                    
-            //        bt.Top = Top;
-            //        bt.Left = Left;
+            int Top = 0; //Vi tri Top
+            for (int i = 1; i <= 2; i++)
+            {
+                int Left = 0; //Vi tri Left
+                for (int j = 1; j <= 2; j++)
+                {
+                    //Taoj 1 button mới
+                    Button bt = new Button();
+                    //Thêm thuộc tính
+                    bt.Name = string.Format("bt{0}{1}", i, j);
+                    bt.Tag = string.Format("[{0}{1}]", i, j);
+                    bt.Text = string.Format("{0}{1}", i, j);
+                    bt.Size = new Size(40, 40);
 
-            //        Left += 50;
+                    bt.Top = Top;
+                    bt.Left = Left;
 
-            //        bt.BackColor = Color.AliceBlue;
-            //        bt.ForeColor = Color.Black;
+                    Left += 50;
+
+                    bt.BackColor = Color.AliceBlue;
+                    bt.ForeColor = Color.Black;
 
 
 
-            //        //Phải thêm nút vào panel để hiển thị luôn
-            //        pnMain.Controls.Add(bt);
-            //    }
-            //    Top += 50;
-            //}
+                    //Phải thêm nút vào panel để hiển thị luôn
+                    pnMain.Controls.Add(bt);
+                }
+                Top += 50;
+            }
 
-           
+
 
         }
 
@@ -69,7 +69,7 @@ namespace Nhom_247
 
         private void adminToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Admin ad = new Admin();
+            FormAdmin ad = new FormAdmin();
             ad.Show();
             this.Hide();
         }
@@ -93,12 +93,7 @@ namespace Nhom_247
             }
         }
 
-        private void nhanVienToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            NhanVien nv = new NhanVien();
-            nv.Show();
-            this.Hide();
-        }
+       
 
         private void btnConfirm_Click(object sender, EventArgs e)
         {

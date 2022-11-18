@@ -39,7 +39,7 @@ namespace Nhom_247.Controller
             try
             {
                 cmd.ExecuteNonQuery();
-                MessageBox.Show("Add done", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+         //       MessageBox.Show("Add done", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (MySqlException ex)
             {
@@ -48,6 +48,48 @@ namespace Nhom_247.Controller
             }
             conn.Close();
 
+        }
+        public static void update_Ticket(Ticket_Model ticket, string id)
+        {
+            string conStr = "UPDATE ticket SET TicketType = @TicketType,TicketPrice = @TicketPrice WHERE ID_TICKET = @id";
+            MySqlConnection conn = GetConnection();
+            MySqlCommand cmd = new MySqlCommand(conStr, conn);
+            cmd.CommandType = CommandType.Text;
+            cmd.Parameters.Add("@id", MySqlDbType.VarChar).Value = id;
+            cmd.Parameters.Add("@TicketType", MySqlDbType.VarChar).Value = ticket.TicketType;
+            cmd.Parameters.Add("@TicketPrice", MySqlDbType.VarChar).Value = ticket.TicketPrice;
+            try
+            {
+                cmd.ExecuteNonQuery();
+              //  MessageBox.Show("update done", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (MySqlException ex)
+            {
+
+                MessageBox.Show("update failed \n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            conn.Close();
+
+        }
+        public static void Delete_TicketType(string id)
+        {
+            string conStr = "DELETE FROM ticket WHERE ID_TICKET = @id";
+            MySqlConnection conn = GetConnection();
+            MySqlCommand cmd = new MySqlCommand(conStr, conn);
+            cmd.CommandType = CommandType.Text;
+
+            cmd.Parameters.Add("@id", MySqlDbType.VarChar).Value = id;
+            try
+            {
+                cmd.ExecuteNonQuery();
+            //    MessageBox.Show("Delete done", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (MySqlException ex)
+            {
+
+                MessageBox.Show("Delete failed \n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            conn.Close();
         }
         public static void DisplayNSearchTicket(string query, DataGridView dgvTicket)
         {
