@@ -34,8 +34,8 @@
             this.pnMain = new System.Windows.Forms.FlowLayoutPanel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
-            this.dgvMovie = new System.Windows.Forms.DataGridView();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.dgvShowtime = new System.Windows.Forms.DataGridView();
+            this.cbxMovieSelect = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.label3 = new System.Windows.Forms.Label();
@@ -44,13 +44,14 @@
             this.dgvFood = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.tbxCost = new System.Windows.Forms.TextBox();
             this.tbxAdminCode = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.btnConfirm = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvMovie)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvShowtime)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFood)).BeginInit();
@@ -116,30 +117,30 @@
             this.label1.Text = "Màn Hình";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // dgvMovie
+            // dgvShowtime
             // 
-            this.dgvMovie.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvMovie.Location = new System.Drawing.Point(43, 276);
-            this.dgvMovie.Name = "dgvMovie";
-            this.dgvMovie.Size = new System.Drawing.Size(291, 280);
-            this.dgvMovie.TabIndex = 5;
+            this.dgvShowtime.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvShowtime.Location = new System.Drawing.Point(43, 276);
+            this.dgvShowtime.Name = "dgvShowtime";
+            this.dgvShowtime.Size = new System.Drawing.Size(522, 280);
+            this.dgvShowtime.TabIndex = 5;
             // 
-            // comboBox1
+            // cbxMovieSelect
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(114, 240);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 6;
+            this.cbxMovieSelect.FormattingEnabled = true;
+            this.cbxMovieSelect.Location = new System.Drawing.Point(114, 240);
+            this.cbxMovieSelect.Name = "cbxMovieSelect";
+            this.cbxMovieSelect.Size = new System.Drawing.Size(121, 21);
+            this.cbxMovieSelect.TabIndex = 6;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(40, 243);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(68, 13);
+            this.label2.Size = new System.Drawing.Size(52, 13);
             this.label2.TabIndex = 7;
-            this.label2.Text = "Phòng Chiếu";
+            this.label2.Text = "Ten Phim";
             // 
             // numericUpDown1
             // 
@@ -190,12 +191,12 @@
             this.dgvFood.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvFood.Location = new System.Drawing.Point(1115, 276);
             this.dgvFood.Name = "dgvFood";
-            this.dgvFood.Size = new System.Drawing.Size(261, 280);
+            this.dgvFood.Size = new System.Drawing.Size(412, 280);
             this.dgvFood.TabIndex = 5;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(43, 563);
+            this.button1.Location = new System.Drawing.Point(43, 598);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 11;
@@ -211,13 +212,6 @@
             this.button2.TabIndex = 11;
             this.button2.Text = "In Vé";
             this.button2.UseVisualStyleBackColor = true;
-            // 
-            // tbxCost
-            // 
-            this.tbxCost.Location = new System.Drawing.Point(388, 276);
-            this.tbxCost.Name = "tbxCost";
-            this.tbxCost.Size = new System.Drawing.Size(100, 20);
-            this.tbxCost.TabIndex = 12;
             // 
             // tbxAdminCode
             // 
@@ -245,24 +239,41 @@
             this.btnConfirm.UseVisualStyleBackColor = true;
             this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click);
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(87, 565);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(151, 20);
+            this.textBox1.TabIndex = 16;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(40, 568);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(41, 13);
+            this.label6.TabIndex = 17;
+            this.label6.Text = "Số ghế";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1629, 744);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.btnConfirm);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.tbxAdminCode);
-            this.Controls.Add(this.tbxCost);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.tableLayoutPanel2);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.numericUpDown1);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cbxMovieSelect);
             this.Controls.Add(this.dgvFood);
-            this.Controls.Add(this.dgvMovie);
+            this.Controls.Add(this.dgvShowtime);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.pnMain);
             this.Controls.Add(this.menuStrip1);
@@ -275,7 +286,7 @@
             this.menuStrip1.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvMovie)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvShowtime)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
@@ -291,8 +302,8 @@
         private System.Windows.Forms.FlowLayoutPanel pnMain;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView dgvMovie;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.DataGridView dgvShowtime;
+        private System.Windows.Forms.ComboBox cbxMovieSelect;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.NumericUpDown numericUpDown1;
         private System.Windows.Forms.Label label3;
@@ -303,9 +314,10 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.ToolStripMenuItem logOutToolStripMenuItem;
-        private System.Windows.Forms.TextBox tbxCost;
         private System.Windows.Forms.TextBox tbxAdminCode;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btnConfirm;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label6;
     }
 }

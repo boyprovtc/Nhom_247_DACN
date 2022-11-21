@@ -8,31 +8,39 @@ using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Nhom_247.Controller;
 using Nhom_247.View;
+using Nhom_247.View.Admin_Area;
+
 namespace Nhom_247
 {
     public partial class MainForm : Form
     {
-       
+        Showtime form4;
         public MainForm()
         {
             InitializeComponent();
+
         }
-        
+        public void Display()
+        {
+            Showtimes_Controller.DisplayNSearchShowTime("SELECT * FROM Showtimes", dgvShowtime);
+            Food_Controller.DisplayNSearchFood("Select * from food", dgvFood);
+        }
         private void MainForm_Load(object sender, EventArgs e)
         {
 
-           
+           Display();
             pnMain.Size = new Size (465,510);
             pnMain.BorderStyle = BorderStyle.FixedSingle;
             WindowState = FormWindowState.Maximized;
             adminToolStripMenuItem.Enabled = false;
             tbxAdminCode.PasswordChar = '*';
             int Top = 0; //Vi tri Top
-            for (int i = 1; i <= 2; i++)
+            for (char i = 'A'; i <= 'J'; i++)
             {
                 int Left = 0; //Vi tri Left
-                for (int j = 1; j <= 2; j++)
+                for (int j = 1; j <= 10; j++)
                 {
                     //Taoj 1 button mới
                     Button bt = new Button();

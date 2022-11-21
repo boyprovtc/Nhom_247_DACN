@@ -49,21 +49,10 @@
             this.Delete_Food = new System.Windows.Forms.DataGridViewButtonColumn();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.gbSuatChieu = new System.Windows.Forms.GroupBox();
-            this.tbxID_Movie = new System.Windows.Forms.TextBox();
-            this.btnAdd = new System.Windows.Forms.Button();
-            this.dtpDate = new System.Windows.Forms.DateTimePicker();
-            this.dtp = new System.Windows.Forms.DateTimePicker();
-            this.cbxRoom = new System.Windows.Forms.ComboBox();
-            this.cbxMovie = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.dgvSuatChieu = new System.Windows.Forms.DataGridView();
-            this.MovieName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Time = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Room = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.btnAddShowTime = new System.Windows.Forms.Button();
+            this.dgvShowtime = new System.Windows.Forms.DataGridView();
+            this.Edit_Showtimes = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Delete_showtime = new System.Windows.Forms.DataGridViewButtonColumn();
             this.tbnNhanVien = new System.Windows.Forms.Button();
             this.btnRoom = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
@@ -74,7 +63,7 @@
             this.gbFastFood.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFood)).BeginInit();
             this.gbSuatChieu.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvSuatChieu)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvShowtime)).BeginInit();
             this.SuspendLayout();
             // 
             // HelloLable
@@ -290,17 +279,8 @@
             // 
             this.gbSuatChieu.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.gbSuatChieu.Controls.Add(this.tbxID_Movie);
-            this.gbSuatChieu.Controls.Add(this.btnAdd);
-            this.gbSuatChieu.Controls.Add(this.dtpDate);
-            this.gbSuatChieu.Controls.Add(this.dtp);
-            this.gbSuatChieu.Controls.Add(this.cbxRoom);
-            this.gbSuatChieu.Controls.Add(this.cbxMovie);
-            this.gbSuatChieu.Controls.Add(this.label1);
-            this.gbSuatChieu.Controls.Add(this.dgvSuatChieu);
-            this.gbSuatChieu.Controls.Add(this.label4);
-            this.gbSuatChieu.Controls.Add(this.label5);
-            this.gbSuatChieu.Controls.Add(this.label3);
+            this.gbSuatChieu.Controls.Add(this.btnAddShowTime);
+            this.gbSuatChieu.Controls.Add(this.dgvShowtime);
             this.gbSuatChieu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbSuatChieu.Location = new System.Drawing.Point(12, 74);
             this.gbSuatChieu.Name = "gbSuatChieu";
@@ -309,127 +289,44 @@
             this.gbSuatChieu.TabStop = false;
             this.gbSuatChieu.Text = "Cài đặt suất chiếu";
             // 
-            // tbxID_Movie
+            // btnAddShowTime
             // 
-            this.tbxID_Movie.Location = new System.Drawing.Point(437, 39);
-            this.tbxID_Movie.Name = "tbxID_Movie";
-            this.tbxID_Movie.Size = new System.Drawing.Size(77, 26);
-            this.tbxID_Movie.TabIndex = 4;
+            this.btnAddShowTime.Location = new System.Drawing.Point(162, 232);
+            this.btnAddShowTime.Name = "btnAddShowTime";
+            this.btnAddShowTime.Size = new System.Drawing.Size(109, 31);
+            this.btnAddShowTime.TabIndex = 5;
+            this.btnAddShowTime.Text = "Them";
+            this.btnAddShowTime.UseVisualStyleBackColor = true;
+            this.btnAddShowTime.Click += new System.EventHandler(this.btnAddShowTime_Click);
             // 
-            // btnAdd
+            // dgvShowtime
             // 
-            this.btnAdd.Location = new System.Drawing.Point(437, 88);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(33, 26);
-            this.btnAdd.TabIndex = 3;
-            this.btnAdd.Text = "+";
-            this.btnAdd.UseVisualStyleBackColor = true;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
-            // 
-            // dtpDate
-            // 
-            this.dtpDate.Location = new System.Drawing.Point(139, 120);
-            this.dtpDate.Name = "dtpDate";
-            this.dtpDate.Size = new System.Drawing.Size(291, 26);
-            this.dtpDate.TabIndex = 2;
-            this.dtpDate.Value = new System.DateTime(2022, 9, 22, 8, 42, 41, 0);
-            // 
-            // dtp
-            // 
-            this.dtp.Location = new System.Drawing.Point(139, 88);
-            this.dtp.Name = "dtp";
-            this.dtp.Size = new System.Drawing.Size(291, 26);
-            this.dtp.TabIndex = 2;
-            this.dtp.Value = new System.DateTime(2022, 9, 22, 8, 42, 41, 0);
-            // 
-            // cbxRoom
-            // 
-            this.cbxRoom.FormattingEnabled = true;
-            this.cbxRoom.Location = new System.Drawing.Point(139, 152);
-            this.cbxRoom.Name = "cbxRoom";
-            this.cbxRoom.Size = new System.Drawing.Size(291, 28);
-            this.cbxRoom.TabIndex = 1;
-            // 
-            // cbxMovie
-            // 
-            this.cbxMovie.FormattingEnabled = true;
-            this.cbxMovie.Location = new System.Drawing.Point(139, 39);
-            this.cbxMovie.Name = "cbxMovie";
-            this.cbxMovie.Size = new System.Drawing.Size(291, 28);
-            this.cbxMovie.TabIndex = 1;
-            this.cbxMovie.SelectedIndexChanged += new System.EventHandler(this.cbxMovie_SelectedIndexChanged);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 125);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(128, 20);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Chọn giờ chiếu";
-            // 
-            // dgvSuatChieu
-            // 
-            this.dgvSuatChieu.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.dgvShowtime.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgvSuatChieu.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvSuatChieu.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvSuatChieu.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.MovieName,
-            this.Time,
-            this.Date,
-            this.Room});
-            this.dgvSuatChieu.Location = new System.Drawing.Point(583, 11);
-            this.dgvSuatChieu.Name = "dgvSuatChieu";
-            this.dgvSuatChieu.Size = new System.Drawing.Size(1090, 252);
-            this.dgvSuatChieu.TabIndex = 0;
+            this.dgvShowtime.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvShowtime.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvShowtime.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Edit_Showtimes,
+            this.Delete_showtime});
+            this.dgvShowtime.Location = new System.Drawing.Point(277, 11);
+            this.dgvShowtime.Name = "dgvShowtime";
+            this.dgvShowtime.Size = new System.Drawing.Size(1396, 252);
+            this.dgvShowtime.TabIndex = 0;
+            this.dgvShowtime.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvShowtime_CellClick);
             // 
-            // MovieName
+            // Edit_Showtimes
             // 
-            this.MovieName.HeaderText = "";
-            this.MovieName.Name = "MovieName";
+            this.Edit_Showtimes.HeaderText = "";
+            this.Edit_Showtimes.Name = "Edit_Showtimes";
+            this.Edit_Showtimes.Text = "Edit";
+            this.Edit_Showtimes.UseColumnTextForButtonValue = true;
             // 
-            // Time
+            // Delete_showtime
             // 
-            this.Time.HeaderText = "";
-            this.Time.Name = "Time";
-            // 
-            // Date
-            // 
-            this.Date.HeaderText = "";
-            this.Date.Name = "Date";
-            // 
-            // Room
-            // 
-            this.Room.HeaderText = "";
-            this.Room.Name = "Room";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(9, 155);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(107, 20);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "Chọn Phòng";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(9, 91);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(128, 20);
-            this.label5.TabIndex = 0;
-            this.label5.Text = "Chọn giờ chiếu";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(9, 42);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(94, 20);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Chọn phim";
+            this.Delete_showtime.HeaderText = "";
+            this.Delete_showtime.Name = "Delete_showtime";
+            this.Delete_showtime.Text = "Delete";
+            this.Delete_showtime.UseColumnTextForButtonValue = true;
             // 
             // tbnNhanVien
             // 
@@ -488,8 +385,7 @@
             this.gbFastFood.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFood)).EndInit();
             this.gbSuatChieu.ResumeLayout(false);
-            this.gbSuatChieu.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvSuatChieu)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvShowtime)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -511,12 +407,7 @@
         private System.Windows.Forms.Button btnAddFood;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.GroupBox gbSuatChieu;
-        private System.Windows.Forms.DataGridView dgvSuatChieu;
-        private System.Windows.Forms.ComboBox cbxMovie;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button btnAdd;
-        private System.Windows.Forms.DateTimePicker dtp;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.DataGridView dgvShowtime;
         private System.Windows.Forms.Button tbnNhanVien;
         private System.Windows.Forms.Button btnNewTicketType;
         private System.Windows.Forms.DataGridViewButtonColumn Edit;
@@ -525,16 +416,10 @@
         private System.Windows.Forms.DataGridViewButtonColumn Delete_Food;
         private System.Windows.Forms.DataGridViewButtonColumn Edit_Movie;
         private System.Windows.Forms.DataGridViewButtonColumn Delete_Movie;
-        private System.Windows.Forms.DateTimePicker dtpDate;
-        private System.Windows.Forms.ComboBox cbxRoom;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnRoom;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox tbxID_Movie;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MovieName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Time;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Date;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Room;
+        private System.Windows.Forms.Button btnAddShowTime;
+        private System.Windows.Forms.DataGridViewButtonColumn Edit_Showtimes;
+        private System.Windows.Forms.DataGridViewButtonColumn Delete_showtime;
     }
 }

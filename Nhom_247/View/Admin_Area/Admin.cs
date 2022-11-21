@@ -28,63 +28,64 @@ namespace Nhom_247
         TicketType form;
         Food form2;
         Movie form3;
-      
+        Showtime form4;
         public FormAdmin()
         {
             InitializeComponent();
             form = new TicketType(this);
             form2 = new Food(this);
             form3 = new Movie(this);
-           
+            form4 = new Showtime(this);
         }
         public void Display()
         {
             Movie_Controller.DisplayNSearchMovie("SELECT * FROM movie", dgvMovie);
             Food_Controller.DisplayNSearchFood("SELECT * FROM food", dgvFood);
             Ticket_Controller.DisplayNSearchTicket("SELECT * FROM ticket", dgvTicket);
-            try
-            {
-                MySqlConnection connection = new MySqlConnection("datasource = localhost; port=3306; username=root; password=;database=247_rapphim");
-                string selectQuery2 = "select * from room";
-                connection.Open();
-                MySqlCommand cmd2 = new MySqlCommand(selectQuery2, connection);
-                MySqlDataReader reader2 = cmd2.ExecuteReader();
-                while (reader2.Read())
-                {
-                    cbxRoom.Items.Add(reader2.GetString("RoomNumber"));
+            Showtimes_Controller.DisplayNSearchShowTime("SELECT * FROM Showtimes", dgvShowtime);
+            //try
+            //{
+            //    MySqlConnection connection = new MySqlConnection("datasource = localhost; port=3306; username=root; password=;database=247_rapphim");
+            //    string selectQuery2 = "select * from room";
+            //    connection.Open();
+            //    MySqlCommand cmd2 = new MySqlCommand(selectQuery2, connection);
+            //    MySqlDataReader reader2 = cmd2.ExecuteReader();
+            //    while (reader2.Read())
+            //    {
+            //        cbxRoom.Items.Add(reader2.GetString("RoomNumber"));
                    
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
+            //    }
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show(ex.Message);
 
-            }
+            //}
         }
         private void Admin_Load(object sender, EventArgs e)
         {
             WindowState = FormWindowState.Maximized;
-            dtp.Format = DateTimePickerFormat.Time;
-            dtp.ShowUpDown = true;
+            //dtp.Format = DateTimePickerFormat.Time;
+            //dtp.ShowUpDown = true;
             Display();
-            try
-            {
-                MySqlConnection connection = new MySqlConnection("datasource = localhost; port=3306; username=root; password=;database=247_rapphim");
-                string selectQuery = "select * from movie";
-                connection.Open();
-                MySqlCommand cmd = new MySqlCommand(selectQuery, connection);
-                MySqlDataReader reader = cmd.ExecuteReader();
-                while (reader.Read())
-                {
-                    cbxMovie.Items.Add(reader.GetString("MovieName"));
+            //try
+            //{
+            //    MySqlConnection connection = new MySqlConnection("datasource = localhost; port=3306; username=root; password=;database=247_rapphim");
+            //    string selectQuery = "select * from movie";
+            //    connection.Open();
+            //    MySqlCommand cmd = new MySqlCommand(selectQuery, connection);
+            //    MySqlDataReader reader = cmd.ExecuteReader();
+            //    while (reader.Read())
+            //    {
+            //        cbxMovie.Items.Add(reader.GetString("MovieName"));
                     
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
+            //    }
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show(ex.Message);
            
-            }
+            //}
         }
        
 
@@ -224,18 +225,40 @@ namespace Nhom_247
             ad.Show();
         }
 
-        private void btnAdd_Click(object sender, EventArgs e)
+       
+       
+      
+        private void btnAddShowTime_Click(object sender, EventArgs e)
         {
-            addData(cbxMovie.Text, dtp.Text, dtpDate.Text, cbxRoom.Text);
+            form4.Clear();
+            form4.ShowDialog();
         }
-        private void addData(string name, string time , string date, string room)
+
+        private void dgvShowtime_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            String[] row = {name, time, date, room};
-            dgvSuatChieu.Rows.Add(row);
-        }
-        private void cbxMovie_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            
+            if (e.ColumnIndex == 0)
+            {
+                form4.Clear();
+                form4.id = dgvShowtime.Rows[e.RowIndex].Cells["ID_Movie"].Value.ToString();
+                form4.id_room = dgvShowtime.Rows[e.RowIndex].Cells["ID_Room"].Value.ToString();
+                form4.name = dgvShowtime.Rows[e.RowIndex].Cells["MovieName"].Value.ToString();
+                form4.time = dgvShowtime.Rows[e.RowIndex].Cells["TIME"].Value.ToString();
+                form4.date = dgvShowtime.Rows[e.RowIndex].Cells["DATE"].Value.ToString();
+                form4.update_info();
+                form4.ShowDialog();
+                this.Refresh();
+                return;
+            }
+            if (e.ColumnIndex == 1)
+            {
+                if (MessageBox.Show("Do you want to delete ?", "Informatioon", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information) == DialogResult.Yes)
+                {
+                    Showtimes_Controller.Delete_Showtime(dgvShowtime.Rows[e.RowIndex].Cells[2].Value.ToString());
+                    Display();
+                }
+                return;
+            }
+
         }
     }
 }
