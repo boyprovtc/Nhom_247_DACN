@@ -12,11 +12,13 @@ namespace Nhom_247.Model
         public char Row { get; set; }
         public int Columm { get; set; }
 
-        public Seat_Model( char row, int columm)
+       
+
+        public Seat_Model(char row, int columm)
         {
-           
             Row = row;
             Columm = columm;
+ 
         }
     }
 }

@@ -31,28 +31,41 @@ namespace Nhom_247.Controller
         }
         public static void add_Seat(Seat_Model seat)
         {
-            int n, m;
-            string conStr = "INSERT INTO tbl_ghe VALUES (NULL, @Row, @Columm)";
+            for (char i = 'A'; i <= 'J'; i++)
+            {
+                for (int j = 1; j <= 10; j++)
+                {
+                    string conStr = "INSERT INTO seat VALUES (NULL,@Row, @Columm)";
+                    MySqlConnection conn = GetConnection();
+                    MySqlCommand cmd = new MySqlCommand(conStr, conn);
+                    cmd.CommandType = CommandType.Text;
+                    cmd.Parameters.Add("@Row", MySqlDbType.VarChar).Value = i;
+                    cmd.Parameters.Add("@Columm", MySqlDbType.VarChar).Value = j;
+                    try
+                    {
+                        cmd.ExecuteNonQuery();
+                        // MessageBox.Show("Add done", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    catch (MySqlException ex)
+                    {
+
+                        MessageBox.Show("Add failed \n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    conn.Close();
+                }
+            }
+
+        }
+        public static void DisplayNSearchSeat(string query)
+        {
+            string conStr = query;
             MySqlConnection conn = GetConnection();
             MySqlCommand cmd = new MySqlCommand(conStr, conn);
-            cmd.CommandType = CommandType.Text;
-            cmd.Parameters.Add("@Row", MySqlDbType.VarChar).Value = seat.Row;
-            cmd.Parameters.Add("@Columm", MySqlDbType.VarChar).Value = seat.Columm;
+            MySqlDataAdapter adp = new MySqlDataAdapter(cmd);
+            DataTable tbl = new DataTable();
+            adp.Fill(tbl);
 
-           
-
-            try
-            {
-                cmd.ExecuteNonQuery();
-                // MessageBox.Show("Add done", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            catch (MySqlException ex)
-            {
-
-                MessageBox.Show("Add failed \n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
             conn.Close();
-
         }
     }
 }

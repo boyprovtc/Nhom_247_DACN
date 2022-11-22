@@ -42,7 +42,7 @@ namespace Nhom_247
             Movie_Controller.DisplayNSearchMovie("SELECT * FROM movie", dgvMovie);
             Food_Controller.DisplayNSearchFood("SELECT * FROM food", dgvFood);
             Ticket_Controller.DisplayNSearchTicket("SELECT * FROM ticket", dgvTicket);
-            Showtimes_Controller.DisplayNSearchShowTime("SELECT * FROM Showtimes", dgvShowtime);
+            Showtimes_Controller.DisplayNSearchShowTime("SELECT * FROM showtimes", dgvShowtime);
             //try
             //{
             //    MySqlConnection connection = new MySqlConnection("datasource = localhost; port=3306; username=root; password=;database=247_rapphim");
@@ -242,22 +242,23 @@ namespace Nhom_247
                 form4.id = dgvShowtime.Rows[e.RowIndex].Cells["ID_Movie"].Value.ToString();
                 form4.id_room = dgvShowtime.Rows[e.RowIndex].Cells["ID_Room"].Value.ToString();
                 form4.name = dgvShowtime.Rows[e.RowIndex].Cells["MovieName"].Value.ToString();
-                form4.time = dgvShowtime.Rows[e.RowIndex].Cells["TIME"].Value.ToString();
-                form4.date = dgvShowtime.Rows[e.RowIndex].Cells["DATE"].Value.ToString();
+                form4.time = dgvShowtime.Rows[e.RowIndex].Cells["DATE"].Value.ToString();
+                form4.date = dgvShowtime.Rows[e.RowIndex].Cells["TIME"].Value.ToString();
+               
                 form4.update_info();
                 form4.ShowDialog();
                 this.Refresh();
                 return;
             }
-            if (e.ColumnIndex == 1)
-            {
-                if (MessageBox.Show("Do you want to delete ?", "Informatioon", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information) == DialogResult.Yes)
-                {
-                    Showtimes_Controller.Delete_Showtime(dgvShowtime.Rows[e.RowIndex].Cells[2].Value.ToString());
-                    Display();
-                }
-                return;
-            }
+            //if (e.ColumnIndex == 1)
+            //{
+            //    if (MessageBox.Show("Do you want to delete ?", "Informatioon", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information) == DialogResult.Yes)
+            //    {
+            //        Showtimes_Controller.Delete_Showtime(dgvShowtime.Rows[e.RowIndex].Cells[2].Value.ToString());
+            //        Display();
+            //    }
+            //    return;
+            //}
 
         }
     }

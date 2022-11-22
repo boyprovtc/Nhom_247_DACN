@@ -175,6 +175,7 @@
     <Compile Include="Controller\Room_Controller.cs" />
     <Compile Include="Controller\Seat_Controller.cs" />
     <Compile Include="Controller\Showtimes_Controller.cs" />
+    <Compile Include="Controller\TicketDetails_Controller.cs" />
     <Compile Include="Controller\Ticket_Controller.cs" />
     <Compile Include="Counter_class.cs" />
     <Compile Include="Model\Food_Model.cs" />
@@ -183,6 +184,7 @@
     <Compile Include="Model\Room_Model.cs" />
     <Compile Include="Model\Seat_Model.cs" />
     <Compile Include="Model\Showtimes_Model.cs" />
+    <Compile Include="Model\TicketDetails_Model.cs" />
     <Compile Include="Model\Ticket_Model.cs" />
     <Compile Include="View\Admin_Area\Admin.cs">
       <SubType>Form</SubType>

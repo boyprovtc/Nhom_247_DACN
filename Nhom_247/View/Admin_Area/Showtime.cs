@@ -20,7 +20,7 @@ namespace Nhom_247.View.Admin_Area
             InitializeComponent();
             _parent = parent;
         }
-        public string id,id_room, name, time,date;
+        public string id,id_room, name,roomnumber, time,date;
 
         private void cbxMovie_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -95,7 +95,7 @@ namespace Nhom_247.View.Admin_Area
 
             if (btnAdd.Text == "Add")
             {
-                Showtimes_Model mv = new Showtimes_Model(cbxID_Movie.Text.Trim(),cbxID_Room.Text.Trim(), cbxMovie.Text.Trim(), dtp.Text.Trim(), dtpDate.Text.Trim());
+                Showtimes_Model mv = new Showtimes_Model( cbxID_Movie.Text.Trim(), cbxID_Room.Text.Trim(), cbxMovie.Text.Trim(), dtp.Text.Trim(), dtpDate.Text.Trim());
                 Showtimes_Controller.add_Showtime(mv);
                 Clear();
 
@@ -105,7 +105,7 @@ namespace Nhom_247.View.Admin_Area
 
                 Showtimes_Model mv = new Showtimes_Model(cbxID_Movie.Text.Trim(), cbxID_Room.Text.Trim(), cbxMovie.Text.Trim(), dtp.Text.Trim(), dtpDate.Text.Trim());
 
-                Showtimes_Controller.update_Showtime(mv, id);
+              //  Showtimes_Controller.update_Showtime(mv, id);
                 Clear();
 
             }
@@ -114,13 +114,15 @@ namespace Nhom_247.View.Admin_Area
         public void Clear()
         {
             btnAdd.Text = "Add";
-            cbxMovie.Text = cbxRoom.Text = dtp.Text = dtpDate.Text = String.Empty;
+            cbxID_Room.Text =cbxID_Movie.Text = cbxMovie.Text = cbxRoom.Text = dtp.Text = dtpDate.Text = String.Empty;
         }
         public void update_info()
         {
             btnAdd.Text = "Update";
             cbxID_Movie.Text = id;
+            cbxID_Room.Text = id_room;
             cbxMovie.Text = name;
+            cbxRoom.Text = roomnumber;
             dtp.Text = time;
             dtpDate.Text = date;
         }

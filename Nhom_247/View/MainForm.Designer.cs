@@ -42,13 +42,26 @@
             this.label4 = new System.Windows.Forms.Label();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.dgvFood = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
+            this.BtnPrintTickey = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.tbxAdminCode = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.btnConfirm = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tbxRow = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.btnFind = new System.Windows.Forms.Button();
+            this.cbxTicket = new System.Windows.Forms.ComboBox();
+            this.cbxPriceTicket = new System.Windows.Forms.ComboBox();
+            this.tbxTime = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.tbxMovieName = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.tbxRoom = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.tbxNumber = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvShowtime)).BeginInit();
@@ -119,16 +132,18 @@
             // 
             // dgvShowtime
             // 
+            this.dgvShowtime.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvShowtime.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvShowtime.Location = new System.Drawing.Point(43, 276);
+            this.dgvShowtime.Location = new System.Drawing.Point(47, 139);
             this.dgvShowtime.Name = "dgvShowtime";
             this.dgvShowtime.Size = new System.Drawing.Size(522, 280);
             this.dgvShowtime.TabIndex = 5;
+            this.dgvShowtime.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvShowtime_CellClick);
             // 
             // cbxMovieSelect
             // 
             this.cbxMovieSelect.FormattingEnabled = true;
-            this.cbxMovieSelect.Location = new System.Drawing.Point(114, 240);
+            this.cbxMovieSelect.Location = new System.Drawing.Point(118, 103);
             this.cbxMovieSelect.Name = "cbxMovieSelect";
             this.cbxMovieSelect.Size = new System.Drawing.Size(121, 21);
             this.cbxMovieSelect.TabIndex = 6;
@@ -136,7 +151,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(40, 243);
+            this.label2.Location = new System.Drawing.Point(44, 106);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(52, 13);
             this.label2.TabIndex = 7;
@@ -188,20 +203,22 @@
             // dgvFood
             // 
             this.dgvFood.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvFood.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvFood.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvFood.Location = new System.Drawing.Point(1115, 276);
             this.dgvFood.Name = "dgvFood";
             this.dgvFood.Size = new System.Drawing.Size(412, 280);
             this.dgvFood.TabIndex = 5;
             // 
-            // button1
+            // BtnPrintTickey
             // 
-            this.button1.Location = new System.Drawing.Point(43, 598);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 11;
-            this.button1.Text = "In Vé";
-            this.button1.UseVisualStyleBackColor = true;
+            this.BtnPrintTickey.Location = new System.Drawing.Point(55, 610);
+            this.BtnPrintTickey.Name = "BtnPrintTickey";
+            this.BtnPrintTickey.Size = new System.Drawing.Size(75, 23);
+            this.BtnPrintTickey.TabIndex = 11;
+            this.BtnPrintTickey.Text = "Print";
+            this.BtnPrintTickey.UseVisualStyleBackColor = true;
+            this.BtnPrintTickey.Click += new System.EventHandler(this.BtnPrintTickey_Click);
             // 
             // button2
             // 
@@ -239,38 +256,157 @@
             this.btnConfirm.UseVisualStyleBackColor = true;
             this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click);
             // 
-            // textBox1
+            // tbxRow
             // 
-            this.textBox1.Location = new System.Drawing.Point(87, 565);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(151, 20);
-            this.textBox1.TabIndex = 16;
+            this.tbxRow.Location = new System.Drawing.Point(109, 548);
+            this.tbxRow.Name = "tbxRow";
+            this.tbxRow.Size = new System.Drawing.Size(110, 20);
+            this.tbxRow.TabIndex = 16;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(40, 568);
+            this.label6.Location = new System.Drawing.Point(52, 551);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(41, 13);
+            this.label6.Size = new System.Drawing.Size(33, 13);
             this.label6.TabIndex = 17;
-            this.label6.Text = "Số ghế";
+            this.label6.Text = "Hàng";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(52, 586);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(43, 13);
+            this.label7.TabIndex = 17;
+            this.label7.Text = "Loại Vé";
+            // 
+            // btnFind
+            // 
+            this.btnFind.Location = new System.Drawing.Point(245, 103);
+            this.btnFind.Name = "btnFind";
+            this.btnFind.Size = new System.Drawing.Size(68, 21);
+            this.btnFind.TabIndex = 19;
+            this.btnFind.Text = "Tìm";
+            this.btnFind.UseVisualStyleBackColor = true;
+            // 
+            // cbxTicket
+            // 
+            this.cbxTicket.FormattingEnabled = true;
+            this.cbxTicket.Location = new System.Drawing.Point(109, 583);
+            this.cbxTicket.Name = "cbxTicket";
+            this.cbxTicket.Size = new System.Drawing.Size(151, 21);
+            this.cbxTicket.TabIndex = 6;
+            this.cbxTicket.SelectedIndexChanged += new System.EventHandler(this.cbxTicket_SelectedIndexChanged);
+            // 
+            // cbxPriceTicket
+            // 
+            this.cbxPriceTicket.FormattingEnabled = true;
+            this.cbxPriceTicket.Location = new System.Drawing.Point(266, 583);
+            this.cbxPriceTicket.Name = "cbxPriceTicket";
+            this.cbxPriceTicket.Size = new System.Drawing.Size(99, 21);
+            this.cbxPriceTicket.TabIndex = 6;
+            // 
+            // tbxTime
+            // 
+            this.tbxTime.Location = new System.Drawing.Point(109, 522);
+            this.tbxTime.Name = "tbxTime";
+            this.tbxTime.Size = new System.Drawing.Size(151, 20);
+            this.tbxTime.TabIndex = 16;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(52, 525);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(53, 13);
+            this.label8.TabIndex = 17;
+            this.label8.Text = "Giờ Chiếu";
+            // 
+            // tbxMovieName
+            // 
+            this.tbxMovieName.Location = new System.Drawing.Point(109, 496);
+            this.tbxMovieName.Name = "tbxMovieName";
+            this.tbxMovieName.Size = new System.Drawing.Size(151, 20);
+            this.tbxMovieName.TabIndex = 16;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(52, 499);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(52, 13);
+            this.label9.TabIndex = 17;
+            this.label9.Text = "Tên Phim";
+            // 
+            // tbxRoom
+            // 
+            this.tbxRoom.Location = new System.Drawing.Point(109, 470);
+            this.tbxRoom.Name = "tbxRoom";
+            this.tbxRoom.Size = new System.Drawing.Size(151, 20);
+            this.tbxRoom.TabIndex = 16;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(52, 473);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(38, 13);
+            this.label10.TabIndex = 17;
+            this.label10.Text = "Phòng";
+            // 
+            // tbxNumber
+            // 
+            this.tbxNumber.Location = new System.Drawing.Point(272, 548);
+            this.tbxNumber.Name = "tbxNumber";
+            this.tbxNumber.Size = new System.Drawing.Size(48, 20);
+            this.tbxNumber.TabIndex = 16;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(240, 551);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(20, 13);
+            this.label11.TabIndex = 17;
+            this.label11.Text = "Số";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(321, 668);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.TabIndex = 20;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1629, 744);
-            this.Controls.Add(this.label6);
             this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.btnFind);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.tbxRoom);
+            this.Controls.Add(this.tbxMovieName);
+            this.Controls.Add(this.tbxTime);
+            this.Controls.Add(this.tbxNumber);
+            this.Controls.Add(this.tbxRow);
             this.Controls.Add(this.btnConfirm);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.tbxAdminCode);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.BtnPrintTickey);
             this.Controls.Add(this.tableLayoutPanel2);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.numericUpDown1);
             this.Controls.Add(this.label2);
+            this.Controls.Add(this.cbxPriceTicket);
+            this.Controls.Add(this.cbxTicket);
             this.Controls.Add(this.cbxMovieSelect);
             this.Controls.Add(this.dgvFood);
             this.Controls.Add(this.dgvShowtime);
@@ -311,13 +447,26 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.DataGridView dgvFood;
         private System.Windows.Forms.ToolStripMenuItem adminToolStripMenuItem;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button BtnPrintTickey;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.ToolStripMenuItem logOutToolStripMenuItem;
         private System.Windows.Forms.TextBox tbxAdminCode;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btnConfirm;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tbxRow;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button btnFind;
+        private System.Windows.Forms.ComboBox cbxTicket;
+        private System.Windows.Forms.ComboBox cbxPriceTicket;
+        private System.Windows.Forms.TextBox tbxTime;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox tbxMovieName;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox tbxRoom;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox tbxNumber;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }

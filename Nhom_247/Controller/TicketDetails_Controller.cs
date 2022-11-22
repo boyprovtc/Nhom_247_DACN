@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace Nhom_247.Controller
 {
-    internal class Showtimes_Controller
+    class TicketDetails_Controller
     {
         public static MySqlConnection GetConnection()
         {
@@ -27,23 +27,18 @@ namespace Nhom_247.Controller
             }
             return conn;
         }
-        public static void add_Showtime(Showtimes_Model showtimes)
+        public static void add_TicketDetails(TicketDetails_Model tkd )
         {
-            string conStr = "INSERT INTO showtimes VALUES (NULL,@ID_Movie,@ID_Room, @MovieName, @TIME, @DATE)";
+            string conStr = "INSERT INTO ticket VALUES (NULL, @ID_Ticket, @Seatnumber,@MovieName,@Roomnumber,@TIME)";
             MySqlConnection conn = GetConnection();
             MySqlCommand cmd = new MySqlCommand(conStr, conn);
             cmd.CommandType = CommandType.Text;
-            cmd.Parameters.Add("@ID_Movie", MySqlDbType.VarChar).Value = showtimes.ID_Movie;
-            cmd.Parameters.Add("@ID_Room", MySqlDbType.VarChar).Value = showtimes.ID_Room;
-            cmd.Parameters.Add("@MovieName", MySqlDbType.VarChar).Value = showtimes.MovieName;
-            cmd.Parameters.Add("@TIME", MySqlDbType.VarChar).Value = showtimes.TIME;
-            cmd.Parameters.Add("@DATE", MySqlDbType.VarChar).Value = showtimes.DATE;
-
-
+            cmd.Parameters.Add("@TicketType", MySqlDbType.VarChar).Value = tkd.Room;
+            cmd.Parameters.Add("@TicketPrice", MySqlDbType.VarChar).Value = tkd.Time;
             try
             {
                 cmd.ExecuteNonQuery();
-                //  MessageBox.Show("Add done", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //       MessageBox.Show("Add done", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (MySqlException ex)
             {
@@ -53,48 +48,40 @@ namespace Nhom_247.Controller
             conn.Close();
 
         }
-        public static void update_Showtime(Showtimes_Model showtimes, string id)
+        public static void update_Ticket(Ticket_Model ticket, string id)
         {
-            string conStr = "UPDATE Showtimes SET ID_Movie = @ID_Movie, ID_Room =@ID_Room,MovieName =@MovieName, DATE = @DATE, TIME = @TIME WHERE ID_showtimes = @id";
+            string conStr = "UPDATE ticket SET TicketType = @TicketType,TicketPrice = @TicketPrice WHERE ID_TICKET = @id";
             MySqlConnection conn = GetConnection();
             MySqlCommand cmd = new MySqlCommand(conStr, conn);
             cmd.CommandType = CommandType.Text;
             cmd.Parameters.Add("@id", MySqlDbType.VarChar).Value = id;
-            cmd.Parameters.Add("@ID_Movie", MySqlDbType.VarChar).Value = showtimes.ID_Movie;
-            cmd.Parameters.Add("@ID_Room", MySqlDbType.VarChar).Value = showtimes.ID_Room;
-            cmd.Parameters.Add("@MovieName", MySqlDbType.VarChar).Value = showtimes.MovieName;
-            cmd.Parameters.Add("@TIME", MySqlDbType.VarChar).Value = showtimes.TIME;
-            cmd.Parameters.Add("@DATE", MySqlDbType.VarChar).Value = showtimes.DATE;
-
-
+            cmd.Parameters.Add("@TicketType", MySqlDbType.VarChar).Value = ticket.TicketType;
+            cmd.Parameters.Add("@TicketPrice", MySqlDbType.VarChar).Value = ticket.TicketPrice;
             try
             {
                 cmd.ExecuteNonQuery();
-                //    MessageBox.Show("update done", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //  MessageBox.Show("update done", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (MySqlException ex)
             {
 
-                MessageBox.Show("Update failed \n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("update failed \n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             conn.Close();
 
         }
-
-        public static void Delete_Showtime(string id)
+        public static void Delete_TicketType(string id)
         {
-            string conStr = "DELETE FROM showtimes WHERE ID_showtimes = @ID";
+            string conStr = "DELETE FROM ticket WHERE ID_TICKET = @id";
             MySqlConnection conn = GetConnection();
             MySqlCommand cmd = new MySqlCommand(conStr, conn);
             cmd.CommandType = CommandType.Text;
 
-            cmd.Parameters.Add("@ID", MySqlDbType.VarChar).Value = id;
-
-
+            cmd.Parameters.Add("@id", MySqlDbType.VarChar).Value = id;
             try
             {
                 cmd.ExecuteNonQuery();
-                // MessageBox.Show("Delete done", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //    MessageBox.Show("Delete done", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (MySqlException ex)
             {
@@ -103,8 +90,7 @@ namespace Nhom_247.Controller
             }
             conn.Close();
         }
-
-        public static void DisplayNSearchShowTime(string query, DataGridView dgvShowtime)
+        public static void DisplayNSearchTicket(string query, DataGridView dgvTicket)
         {
             string conStr = query;
             MySqlConnection conn = GetConnection();
@@ -112,7 +98,7 @@ namespace Nhom_247.Controller
             MySqlDataAdapter adp = new MySqlDataAdapter(cmd);
             DataTable tbl = new DataTable();
             adp.Fill(tbl);
-            dgvShowtime.DataSource = tbl;
+            dgvTicket.DataSource = tbl;
             conn.Close();
         }
     }
