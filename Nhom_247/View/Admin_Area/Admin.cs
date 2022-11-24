@@ -41,7 +41,7 @@ namespace Nhom_247
         {
             Movie_Controller.DisplayNSearchMovie("SELECT * FROM movie", dgvMovie);
             Food_Controller.DisplayNSearchFood("SELECT * FROM food", dgvFood);
-            Ticket_Controller.DisplayNSearchTicket("SELECT * FROM ticket", dgvTicket);
+            Ticket_Controller.DisplayNSearchTicket("SELECT * FROM ticket_type", dgvTicket);
             Showtimes_Controller.DisplayNSearchShowTime("SELECT * FROM showtimes", dgvShowtime);
             //try
             //{
@@ -128,7 +128,7 @@ namespace Nhom_247
             if (e.ColumnIndex == 0)
             {
                 form.Clear();
-                form.id = dgvTicket.Rows[e.RowIndex].Cells["ID_TICKET"].Value.ToString();
+                form.id = dgvTicket.Rows[e.RowIndex].Cells["ID_TICKETTYPE"].Value.ToString();
                 form.type = dgvTicket.Rows[e.RowIndex].Cells["TicketType"].Value.ToString();
                 form.price = dgvTicket.Rows[e.RowIndex].Cells["TicketPrice"].Value.ToString();
                 form.update_info();

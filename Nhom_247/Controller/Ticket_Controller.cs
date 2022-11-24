@@ -30,7 +30,7 @@ namespace Nhom_247.Controller
         }
         public static void add_Ticket(Ticket_Model ticket)
         {
-            string conStr = "INSERT INTO ticket VALUES (NULL, @TicketType, @TicketPrice)";
+            string conStr = "INSERT INTO ticket_type VALUES (NULL, @TicketType, @TicketPrice)";
             MySqlConnection conn = GetConnection();
             MySqlCommand cmd = new MySqlCommand(conStr, conn);
             cmd.CommandType = CommandType.Text;
@@ -51,7 +51,7 @@ namespace Nhom_247.Controller
         }
         public static void update_Ticket(Ticket_Model ticket, string id)
         {
-            string conStr = "UPDATE ticket SET TicketType = @TicketType,TicketPrice = @TicketPrice WHERE ID_TICKET = @id";
+            string conStr = "UPDATE ticket_type SET TicketType = @TicketType,TicketPrice = @TicketPrice WHERE ID_TICKETTYPE = @id";
             MySqlConnection conn = GetConnection();
             MySqlCommand cmd = new MySqlCommand(conStr, conn);
             cmd.CommandType = CommandType.Text;
@@ -73,7 +73,7 @@ namespace Nhom_247.Controller
         }
         public static void Delete_TicketType(string id)
         {
-            string conStr = "DELETE FROM ticket WHERE ID_TICKET = @id";
+            string conStr = "DELETE FROM ticket_type WHERE ID_TICKETTYPE = @id";
             MySqlConnection conn = GetConnection();
             MySqlCommand cmd = new MySqlCommand(conStr, conn);
             cmd.CommandType = CommandType.Text;

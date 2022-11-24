@@ -47,8 +47,6 @@
             this.tbxAdminCode = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.btnConfirm = new System.Windows.Forms.Button();
-            this.tbxRow = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.btnFind = new System.Windows.Forms.Button();
             this.cbxTicket = new System.Windows.Forms.ComboBox();
@@ -61,13 +59,22 @@
             this.label10 = new System.Windows.Forms.Label();
             this.tbxNumber = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tbxTotal = new System.Windows.Forms.TextBox();
+            this.dgvTicket = new System.Windows.Forms.DataGridView();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.total = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.date = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvTicketDetails = new System.Windows.Forms.DataGridView();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvShowtime)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFood)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTicket)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTicketDetails)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -100,7 +107,7 @@
             this.pnMain.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.pnMain.Location = new System.Drawing.Point(589, 239);
             this.pnMain.Name = "pnMain";
-            this.pnMain.Size = new System.Drawing.Size(465, 510);
+            this.pnMain.Size = new System.Drawing.Size(465, 405);
             this.pnMain.TabIndex = 3;
             // 
             // tableLayoutPanel1
@@ -136,7 +143,7 @@
             this.dgvShowtime.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvShowtime.Location = new System.Drawing.Point(47, 139);
             this.dgvShowtime.Name = "dgvShowtime";
-            this.dgvShowtime.Size = new System.Drawing.Size(522, 280);
+            this.dgvShowtime.Size = new System.Drawing.Size(522, 194);
             this.dgvShowtime.TabIndex = 5;
             this.dgvShowtime.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvShowtime_CellClick);
             // 
@@ -160,7 +167,7 @@
             // numericUpDown1
             // 
             this.numericUpDown1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.numericUpDown1.Location = new System.Drawing.Point(1298, 244);
+            this.numericUpDown1.Location = new System.Drawing.Point(1311, 107);
             this.numericUpDown1.Name = "numericUpDown1";
             this.numericUpDown1.Size = new System.Drawing.Size(128, 20);
             this.numericUpDown1.TabIndex = 8;
@@ -169,7 +176,7 @@
             // 
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(1230, 246);
+            this.label3.Location = new System.Drawing.Point(1243, 109);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(49, 13);
             this.label3.TabIndex = 9;
@@ -193,7 +200,7 @@
             this.tableLayoutPanel2.ColumnCount = 1;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.Controls.Add(this.label4, 0, 0);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(1261, 139);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(1128, 38);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -205,14 +212,14 @@
             this.dgvFood.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvFood.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvFood.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvFood.Location = new System.Drawing.Point(1115, 276);
+            this.dgvFood.Location = new System.Drawing.Point(1128, 139);
             this.dgvFood.Name = "dgvFood";
             this.dgvFood.Size = new System.Drawing.Size(412, 280);
             this.dgvFood.TabIndex = 5;
             // 
             // BtnPrintTickey
             // 
-            this.BtnPrintTickey.Location = new System.Drawing.Point(55, 610);
+            this.BtnPrintTickey.Location = new System.Drawing.Point(184, 479);
             this.BtnPrintTickey.Name = "BtnPrintTickey";
             this.BtnPrintTickey.Size = new System.Drawing.Size(75, 23);
             this.BtnPrintTickey.TabIndex = 11;
@@ -223,7 +230,7 @@
             // button2
             // 
             this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button2.Location = new System.Drawing.Point(1115, 563);
+            this.button2.Location = new System.Drawing.Point(1128, 426);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 11;
@@ -256,26 +263,10 @@
             this.btnConfirm.UseVisualStyleBackColor = true;
             this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click);
             // 
-            // tbxRow
-            // 
-            this.tbxRow.Location = new System.Drawing.Point(109, 548);
-            this.tbxRow.Name = "tbxRow";
-            this.tbxRow.Size = new System.Drawing.Size(110, 20);
-            this.tbxRow.TabIndex = 16;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(52, 551);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(33, 13);
-            this.label6.TabIndex = 17;
-            this.label6.Text = "Hàng";
-            // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(52, 586);
+            this.label7.Location = new System.Drawing.Point(52, 455);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(43, 13);
             this.label7.TabIndex = 17;
@@ -293,7 +284,7 @@
             // cbxTicket
             // 
             this.cbxTicket.FormattingEnabled = true;
-            this.cbxTicket.Location = new System.Drawing.Point(109, 583);
+            this.cbxTicket.Location = new System.Drawing.Point(109, 452);
             this.cbxTicket.Name = "cbxTicket";
             this.cbxTicket.Size = new System.Drawing.Size(151, 21);
             this.cbxTicket.TabIndex = 6;
@@ -302,14 +293,14 @@
             // cbxPriceTicket
             // 
             this.cbxPriceTicket.FormattingEnabled = true;
-            this.cbxPriceTicket.Location = new System.Drawing.Point(266, 583);
+            this.cbxPriceTicket.Location = new System.Drawing.Point(266, 452);
             this.cbxPriceTicket.Name = "cbxPriceTicket";
             this.cbxPriceTicket.Size = new System.Drawing.Size(99, 21);
             this.cbxPriceTicket.TabIndex = 6;
             // 
             // tbxTime
             // 
-            this.tbxTime.Location = new System.Drawing.Point(109, 522);
+            this.tbxTime.Location = new System.Drawing.Point(109, 391);
             this.tbxTime.Name = "tbxTime";
             this.tbxTime.Size = new System.Drawing.Size(151, 20);
             this.tbxTime.TabIndex = 16;
@@ -317,7 +308,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(52, 525);
+            this.label8.Location = new System.Drawing.Point(52, 394);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(53, 13);
             this.label8.TabIndex = 17;
@@ -325,7 +316,7 @@
             // 
             // tbxMovieName
             // 
-            this.tbxMovieName.Location = new System.Drawing.Point(109, 496);
+            this.tbxMovieName.Location = new System.Drawing.Point(109, 365);
             this.tbxMovieName.Name = "tbxMovieName";
             this.tbxMovieName.Size = new System.Drawing.Size(151, 20);
             this.tbxMovieName.TabIndex = 16;
@@ -333,7 +324,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(52, 499);
+            this.label9.Location = new System.Drawing.Point(52, 368);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(52, 13);
             this.label9.TabIndex = 17;
@@ -341,7 +332,7 @@
             // 
             // tbxRoom
             // 
-            this.tbxRoom.Location = new System.Drawing.Point(109, 470);
+            this.tbxRoom.Location = new System.Drawing.Point(109, 339);
             this.tbxRoom.Name = "tbxRoom";
             this.tbxRoom.Size = new System.Drawing.Size(151, 20);
             this.tbxRoom.TabIndex = 16;
@@ -349,7 +340,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(52, 473);
+            this.label10.Location = new System.Drawing.Point(52, 342);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(38, 13);
             this.label10.TabIndex = 17;
@@ -357,7 +348,7 @@
             // 
             // tbxNumber
             // 
-            this.tbxNumber.Location = new System.Drawing.Point(272, 548);
+            this.tbxNumber.Location = new System.Drawing.Point(106, 417);
             this.tbxNumber.Name = "tbxNumber";
             this.tbxNumber.Size = new System.Drawing.Size(48, 20);
             this.tbxNumber.TabIndex = 16;
@@ -365,37 +356,95 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(240, 551);
+            this.label11.Location = new System.Drawing.Point(52, 420);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(20, 13);
             this.label11.TabIndex = 17;
             this.label11.Text = "Số";
             // 
-            // textBox1
+            // tbxTotal
             // 
-            this.textBox1.Location = new System.Drawing.Point(321, 668);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 20;
+            this.tbxTotal.Location = new System.Drawing.Point(265, 479);
+            this.tbxTotal.Name = "tbxTotal";
+            this.tbxTotal.Size = new System.Drawing.Size(100, 20);
+            this.tbxTotal.TabIndex = 20;
+            // 
+            // dgvTicket
+            // 
+            this.dgvTicket.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvTicket.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvTicket.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ID,
+            this.total,
+            this.date});
+            this.dgvTicket.Location = new System.Drawing.Point(47, 527);
+            this.dgvTicket.Name = "dgvTicket";
+            this.dgvTicket.Size = new System.Drawing.Size(522, 174);
+            this.dgvTicket.TabIndex = 21;
+            this.dgvTicket.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTicket_CellClick);
+            // 
+            // ID
+            // 
+            this.ID.HeaderText = "Ma Ve";
+            this.ID.Name = "ID";
+            // 
+            // total
+            // 
+            this.total.HeaderText = "Tong";
+            this.total.Name = "total";
+            // 
+            // date
+            // 
+            this.date.HeaderText = "NgayMua";
+            this.date.Name = "date";
+            // 
+            // dgvTicketDetails
+            // 
+            this.dgvTicketDetails.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvTicketDetails.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvTicketDetails.Location = new System.Drawing.Point(47, 723);
+            this.dgvTicketDetails.Name = "dgvTicketDetails";
+            this.dgvTicketDetails.Size = new System.Drawing.Size(522, 115);
+            this.dgvTicketDetails.TabIndex = 22;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(47, 505);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(20, 13);
+            this.label12.TabIndex = 17;
+            this.label12.Text = "Vé";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(52, 704);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(54, 13);
+            this.label6.TabIndex = 17;
+            this.label6.Text = "Chi tiết vé";
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1629, 744);
-            this.Controls.Add(this.textBox1);
+            this.ClientSize = new System.Drawing.Size(1629, 825);
+            this.Controls.Add(this.dgvTicketDetails);
+            this.Controls.Add(this.dgvTicket);
+            this.Controls.Add(this.tbxTotal);
             this.Controls.Add(this.btnFind);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label12);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label11);
-            this.Controls.Add(this.label6);
             this.Controls.Add(this.tbxRoom);
             this.Controls.Add(this.tbxMovieName);
             this.Controls.Add(this.tbxTime);
             this.Controls.Add(this.tbxNumber);
-            this.Controls.Add(this.tbxRow);
             this.Controls.Add(this.btnConfirm);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.tbxAdminCode);
@@ -427,6 +476,8 @@
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFood)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTicket)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTicketDetails)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -453,8 +504,6 @@
         private System.Windows.Forms.TextBox tbxAdminCode;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btnConfirm;
-        private System.Windows.Forms.TextBox tbxRow;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button btnFind;
         private System.Windows.Forms.ComboBox cbxTicket;
@@ -467,6 +516,13 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox tbxNumber;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tbxTotal;
+        private System.Windows.Forms.DataGridView dgvTicket;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn total;
+        private System.Windows.Forms.DataGridViewTextBoxColumn date;
+        private System.Windows.Forms.DataGridView dgvTicketDetails;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label6;
     }
 }
