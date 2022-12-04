@@ -39,6 +39,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.cbxID_Movie = new System.Windows.Forms.ComboBox();
             this.cbxID_Room = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.tbxID_Showtime = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // btnAdd
@@ -79,7 +81,7 @@
             // cbxMovie
             // 
             this.cbxMovie.FormattingEnabled = true;
-            this.cbxMovie.Location = new System.Drawing.Point(142, 12);
+            this.cbxMovie.Location = new System.Drawing.Point(142, 34);
             this.cbxMovie.Name = "cbxMovie";
             this.cbxMovie.Size = new System.Drawing.Size(291, 21);
             this.cbxMovie.TabIndex = 9;
@@ -115,7 +117,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 15);
+            this.label3.Location = new System.Drawing.Point(12, 37);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(57, 13);
             this.label3.TabIndex = 7;
@@ -124,7 +126,7 @@
             // cbxID_Movie
             // 
             this.cbxID_Movie.FormattingEnabled = true;
-            this.cbxID_Movie.Location = new System.Drawing.Point(441, 12);
+            this.cbxID_Movie.Location = new System.Drawing.Point(441, 34);
             this.cbxID_Movie.Name = "cbxID_Movie";
             this.cbxID_Movie.Size = new System.Drawing.Size(63, 21);
             this.cbxID_Movie.TabIndex = 15;
@@ -137,11 +139,28 @@
             this.cbxID_Room.Size = new System.Drawing.Size(63, 21);
             this.cbxID_Room.TabIndex = 16;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(12, 10);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(18, 13);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "ID";
+            // 
+            // tbxID_Showtime
+            // 
+            this.tbxID_Showtime.Location = new System.Drawing.Point(142, 7);
+            this.tbxID_Showtime.Name = "tbxID_Showtime";
+            this.tbxID_Showtime.Size = new System.Drawing.Size(100, 20);
+            this.tbxID_Showtime.TabIndex = 17;
+            // 
             // Showtime
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(530, 170);
+            this.Controls.Add(this.tbxID_Showtime);
             this.Controls.Add(this.cbxID_Room);
             this.Controls.Add(this.cbxID_Movie);
             this.Controls.Add(this.btnAdd);
@@ -151,6 +170,7 @@
             this.Controls.Add(this.cbxMovie);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label4);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label3);
             this.Name = "Showtime";
@@ -174,5 +194,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox cbxID_Movie;
         private System.Windows.Forms.ComboBox cbxID_Room;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox tbxID_Showtime;
     }
 }

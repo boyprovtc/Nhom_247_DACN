@@ -41,7 +41,6 @@ namespace Nhom_247
         {
             Movie_Controller.DisplayNSearchMovie("SELECT * FROM movie", dgvMovie);
             Food_Controller.DisplayNSearchFood("SELECT * FROM food", dgvFood);
-            Ticket_Controller.DisplayNSearchTicket("SELECT * FROM ticket_type", dgvTicket);
             Showtimes_Controller.DisplayNSearchShowTime("SELECT * FROM showtimes", dgvShowtime);
             //try
             //{
@@ -104,12 +103,7 @@ namespace Nhom_247
         {
   //          tbxMovieName.Text = tbxMovieAbout.Text = tbxFoodName.Text = tbxFoodPrice.Text = tbxticketprice.Text = tbxtickettype.Text = String.Empty;
         }
-       
-
-      
-
-      
-
+  
         private void tbnNhanVien_Click(object sender, EventArgs e)
         {
             NhanVien_Info nvi = new NhanVien_Info();
@@ -117,35 +111,7 @@ namespace Nhom_247
             nvi.Show();
         }
 
-        private void btnNewTicketType_Click(object sender, EventArgs e)
-        {
-            form.Clear();
-            form.ShowDialog();
-        }
-
-        private void dgvTicket_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.ColumnIndex == 0)
-            {
-                form.Clear();
-                form.id = dgvTicket.Rows[e.RowIndex].Cells["ID_TICKETTYPE"].Value.ToString();
-                form.type = dgvTicket.Rows[e.RowIndex].Cells["TicketType"].Value.ToString();
-                form.price = dgvTicket.Rows[e.RowIndex].Cells["TicketPrice"].Value.ToString();
-                form.update_info();
-                form.ShowDialog();
-                return;
-            }
-            if (e.ColumnIndex == 1)
-            {
-                if (MessageBox.Show("Do you want to delete ?", "Informatioon", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information) == DialogResult.Yes)
-                {
-                    Ticket_Controller.Delete_TicketType(dgvTicket.Rows[e.RowIndex].Cells[2].Value.ToString());
-                    Display();
-                }
-                return;
-            }
-           
-        }
+     
 
         private void dgvFood_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -217,13 +183,7 @@ namespace Nhom_247
             Room_info ri = new Room_info();
             ri.Show();
         }
-        
-        private void button1_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            FormAdmin ad = new FormAdmin();
-            ad.Show();
-        }
+      
 
        
        
@@ -239,6 +199,7 @@ namespace Nhom_247
             if (e.ColumnIndex == 0)
             {
                 form4.Clear();
+                form4.id_showtimes =  dgvShowtime.Rows[e.RowIndex].Cells["ID_Showtime"].Value.ToString();
                 form4.id = dgvShowtime.Rows[e.RowIndex].Cells["ID_Movie"].Value.ToString();
                 form4.id_room = dgvShowtime.Rows[e.RowIndex].Cells["ID_Room"].Value.ToString();
                 form4.name = dgvShowtime.Rows[e.RowIndex].Cells["MovieName"].Value.ToString();
@@ -250,16 +211,24 @@ namespace Nhom_247
                 this.Refresh();
                 return;
             }
-            //if (e.ColumnIndex == 1)
-            //{
-            //    if (MessageBox.Show("Do you want to delete ?", "Informatioon", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information) == DialogResult.Yes)
-            //    {
-            //        Showtimes_Controller.Delete_Showtime(dgvShowtime.Rows[e.RowIndex].Cells[2].Value.ToString());
-            //        Display();
-            //    }
-            //    return;
-            //}
+            if (e.ColumnIndex == 1)
+            {
+                if (MessageBox.Show("Do you want to delete ?", "Informatioon", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information) == DialogResult.Yes)
+                {
+                    Showtimes_Controller.Delete_Showtime(dgvShowtime.Rows[e.RowIndex].Cells[2].Value.ToString());
+                    Display();
+                }
+                return;
+            }
 
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+           
+            MainForm mF = new MainForm();
+            mF.Show();
+            this.Hide();
         }
     }
 }

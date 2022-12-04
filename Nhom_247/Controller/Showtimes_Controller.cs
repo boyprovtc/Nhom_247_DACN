@@ -55,7 +55,7 @@ namespace Nhom_247.Controller
         }
         public static void update_Showtime(Showtimes_Model showtimes, string id)
         {
-            string conStr = "UPDATE Showtimes SET ID_Movie = @ID_Movie, ID_Room =@ID_Room,MovieName =@MovieName, DATE = @DATE, TIME = @TIME WHERE ID_showtimes = @id";
+            string conStr = "UPDATE showtimes SET ID_Movie = @ID_Movie, ID_Room =@ID_Room,MovieName = @MovieName, DATE = @DATE, TIME = @TIME WHERE ID_Showtime = @id";
             MySqlConnection conn = GetConnection();
             MySqlCommand cmd = new MySqlCommand(conStr, conn);
             cmd.CommandType = CommandType.Text;
@@ -83,7 +83,7 @@ namespace Nhom_247.Controller
 
         public static void Delete_Showtime(string id)
         {
-            string conStr = "DELETE FROM showtimes WHERE ID_showtimes = @ID";
+            string conStr = "DELETE FROM showtimes WHERE ID_Showtime = @ID";
             MySqlConnection conn = GetConnection();
             MySqlCommand cmd = new MySqlCommand(conStr, conn);
             cmd.CommandType = CommandType.Text;

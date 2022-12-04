@@ -20,8 +20,18 @@ namespace Nhom_247.View.Admin_Area
             InitializeComponent();
             _parent = parent;
         }
-        public string id,id_room, name,roomnumber, time,date;
-
+        public string id_showtimes,id,id_room, name,roomnumber, time,date;
+        public void update_info()
+        {
+            btnAdd.Text = "Update";
+            tbxID_Showtime.Text = id_showtimes;
+            cbxID_Movie.Text = id;
+            cbxID_Room.Text = id_room;
+            cbxMovie.Text = name;
+            cbxRoom.Text = roomnumber;
+            dtp.Text = time;
+            dtpDate.Text = date;
+        }
         private void cbxMovie_SelectedIndexChanged(object sender, EventArgs e)
         {
             cbxID_Movie.SelectedIndex = cbxMovie.SelectedIndex;
@@ -40,6 +50,7 @@ namespace Nhom_247.View.Admin_Area
             dtp.ShowUpDown = true;
             cbxID_Movie.Enabled = false;
             cbxID_Room.Enabled = false;
+            tbxID_Showtime.ReadOnly = true;
             try
             {
                 MySqlConnection connection = new MySqlConnection("datasource = localhost; port=3306; username=root; password=;database=247_rapphim");
@@ -95,17 +106,16 @@ namespace Nhom_247.View.Admin_Area
 
             if (btnAdd.Text == "Add")
             {
-                Showtimes_Model mv = new Showtimes_Model( cbxID_Movie.Text.Trim(), cbxID_Room.Text.Trim(), cbxMovie.Text.Trim(), dtp.Text.Trim(), dtpDate.Text.Trim());
-                Showtimes_Controller.add_Showtime(mv);
+                Showtimes_Model st = new Showtimes_Model(cbxID_Movie.Text.Trim(), cbxID_Room.Text.Trim(), cbxMovie.Text.Trim(), dtp.Text.Trim(), dtpDate.Text.Trim());
+                Showtimes_Controller.add_Showtime(st);
                 Clear();
 
             }
             if (btnAdd.Text == "Update")
             {
 
-                Showtimes_Model mv = new Showtimes_Model(cbxID_Movie.Text.Trim(), cbxID_Room.Text.Trim(), cbxMovie.Text.Trim(), dtp.Text.Trim(), dtpDate.Text.Trim());
-
-              //  Showtimes_Controller.update_Showtime(mv, id);
+                Showtimes_Model st = new Showtimes_Model(cbxID_Movie.Text.Trim(), cbxID_Room.Text.Trim(), cbxMovie.Text.Trim(), dtp.Text.Trim(), dtpDate.Text.Trim());
+                Showtimes_Controller.update_Showtime(st, id);
                 Clear();
 
             }
@@ -116,16 +126,7 @@ namespace Nhom_247.View.Admin_Area
             btnAdd.Text = "Add";
             cbxID_Room.Text =cbxID_Movie.Text = cbxMovie.Text = cbxRoom.Text = dtp.Text = dtpDate.Text = String.Empty;
         }
-        public void update_info()
-        {
-            btnAdd.Text = "Update";
-            cbxID_Movie.Text = id;
-            cbxID_Room.Text = id_room;
-            cbxMovie.Text = name;
-            cbxRoom.Text = roomnumber;
-            dtp.Text = time;
-            dtpDate.Text = date;
-        }
+       
 
     }
 }

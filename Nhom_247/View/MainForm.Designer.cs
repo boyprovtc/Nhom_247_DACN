@@ -47,10 +47,7 @@
             this.tbxAdminCode = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.btnConfirm = new System.Windows.Forms.Button();
-            this.label7 = new System.Windows.Forms.Label();
             this.btnFind = new System.Windows.Forms.Button();
-            this.cbxTicket = new System.Windows.Forms.ComboBox();
-            this.cbxPriceTicket = new System.Windows.Forms.ComboBox();
             this.tbxTime = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.tbxMovieName = new System.Windows.Forms.TextBox();
@@ -61,12 +58,10 @@
             this.label11 = new System.Windows.Forms.Label();
             this.tbxTotal = new System.Windows.Forms.TextBox();
             this.dgvTicket = new System.Windows.Forms.DataGridView();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.total = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvTicketDetails = new System.Windows.Forms.DataGridView();
+            this.dgvBillDetails = new System.Windows.Forms.DataGridView();
             this.label12 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.dtpBill = new System.Windows.Forms.DateTimePicker();
             this.menuStrip1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvShowtime)).BeginInit();
@@ -74,7 +69,7 @@
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFood)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTicket)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvTicketDetails)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvBillDetails)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -143,7 +138,7 @@
             this.dgvShowtime.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvShowtime.Location = new System.Drawing.Point(47, 139);
             this.dgvShowtime.Name = "dgvShowtime";
-            this.dgvShowtime.Size = new System.Drawing.Size(522, 194);
+            this.dgvShowtime.Size = new System.Drawing.Size(625, 194);
             this.dgvShowtime.TabIndex = 5;
             this.dgvShowtime.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvShowtime_CellClick);
             // 
@@ -219,7 +214,7 @@
             // 
             // BtnPrintTickey
             // 
-            this.BtnPrintTickey.Location = new System.Drawing.Point(184, 479);
+            this.BtnPrintTickey.Location = new System.Drawing.Point(50, 452);
             this.BtnPrintTickey.Name = "BtnPrintTickey";
             this.BtnPrintTickey.Size = new System.Drawing.Size(75, 23);
             this.BtnPrintTickey.TabIndex = 11;
@@ -263,15 +258,6 @@
             this.btnConfirm.UseVisualStyleBackColor = true;
             this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click);
             // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(52, 455);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(43, 13);
-            this.label7.TabIndex = 17;
-            this.label7.Text = "Loại Vé";
-            // 
             // btnFind
             // 
             this.btnFind.Location = new System.Drawing.Point(245, 103);
@@ -280,23 +266,6 @@
             this.btnFind.TabIndex = 19;
             this.btnFind.Text = "Tìm";
             this.btnFind.UseVisualStyleBackColor = true;
-            // 
-            // cbxTicket
-            // 
-            this.cbxTicket.FormattingEnabled = true;
-            this.cbxTicket.Location = new System.Drawing.Point(109, 452);
-            this.cbxTicket.Name = "cbxTicket";
-            this.cbxTicket.Size = new System.Drawing.Size(151, 21);
-            this.cbxTicket.TabIndex = 6;
-            this.cbxTicket.SelectedIndexChanged += new System.EventHandler(this.cbxTicket_SelectedIndexChanged);
-            // 
-            // cbxPriceTicket
-            // 
-            this.cbxPriceTicket.FormattingEnabled = true;
-            this.cbxPriceTicket.Location = new System.Drawing.Point(266, 452);
-            this.cbxPriceTicket.Name = "cbxPriceTicket";
-            this.cbxPriceTicket.Size = new System.Drawing.Size(99, 21);
-            this.cbxPriceTicket.TabIndex = 6;
             // 
             // tbxTime
             // 
@@ -350,7 +319,7 @@
             // 
             this.tbxNumber.Location = new System.Drawing.Point(106, 417);
             this.tbxNumber.Name = "tbxNumber";
-            this.tbxNumber.Size = new System.Drawing.Size(48, 20);
+            this.tbxNumber.Size = new System.Drawing.Size(259, 20);
             this.tbxNumber.TabIndex = 16;
             // 
             // label11
@@ -364,7 +333,7 @@
             // 
             // tbxTotal
             // 
-            this.tbxTotal.Location = new System.Drawing.Point(265, 479);
+            this.tbxTotal.Location = new System.Drawing.Point(131, 452);
             this.tbxTotal.Name = "tbxTotal";
             this.tbxTotal.Size = new System.Drawing.Size(100, 20);
             this.tbxTotal.TabIndex = 20;
@@ -373,39 +342,20 @@
             // 
             this.dgvTicket.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvTicket.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvTicket.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ID,
-            this.total,
-            this.date});
             this.dgvTicket.Location = new System.Drawing.Point(47, 527);
             this.dgvTicket.Name = "dgvTicket";
-            this.dgvTicket.Size = new System.Drawing.Size(522, 174);
+            this.dgvTicket.Size = new System.Drawing.Size(625, 140);
             this.dgvTicket.TabIndex = 21;
             this.dgvTicket.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTicket_CellClick);
             // 
-            // ID
+            // dgvBillDetails
             // 
-            this.ID.HeaderText = "Ma Ve";
-            this.ID.Name = "ID";
-            // 
-            // total
-            // 
-            this.total.HeaderText = "Tong";
-            this.total.Name = "total";
-            // 
-            // date
-            // 
-            this.date.HeaderText = "NgayMua";
-            this.date.Name = "date";
-            // 
-            // dgvTicketDetails
-            // 
-            this.dgvTicketDetails.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvTicketDetails.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvTicketDetails.Location = new System.Drawing.Point(47, 723);
-            this.dgvTicketDetails.Name = "dgvTicketDetails";
-            this.dgvTicketDetails.Size = new System.Drawing.Size(522, 115);
-            this.dgvTicketDetails.TabIndex = 22;
+            this.dgvBillDetails.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvBillDetails.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvBillDetails.Location = new System.Drawing.Point(47, 723);
+            this.dgvBillDetails.Name = "dgvBillDetails";
+            this.dgvBillDetails.Size = new System.Drawing.Size(625, 115);
+            this.dgvBillDetails.TabIndex = 22;
             // 
             // label12
             // 
@@ -425,18 +375,25 @@
             this.label6.TabIndex = 17;
             this.label6.Text = "Chi tiết vé";
             // 
+            // dtpBill
+            // 
+            this.dtpBill.Location = new System.Drawing.Point(339, 339);
+            this.dtpBill.Name = "dtpBill";
+            this.dtpBill.Size = new System.Drawing.Size(200, 20);
+            this.dtpBill.TabIndex = 23;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1629, 825);
-            this.Controls.Add(this.dgvTicketDetails);
+            this.Controls.Add(this.dtpBill);
+            this.Controls.Add(this.dgvBillDetails);
             this.Controls.Add(this.dgvTicket);
             this.Controls.Add(this.tbxTotal);
             this.Controls.Add(this.btnFind);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label12);
-            this.Controls.Add(this.label7);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
@@ -454,8 +411,6 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.numericUpDown1);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.cbxPriceTicket);
-            this.Controls.Add(this.cbxTicket);
             this.Controls.Add(this.cbxMovieSelect);
             this.Controls.Add(this.dgvFood);
             this.Controls.Add(this.dgvShowtime);
@@ -477,7 +432,7 @@
             this.tableLayoutPanel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFood)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTicket)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvTicketDetails)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvBillDetails)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -504,10 +459,7 @@
         private System.Windows.Forms.TextBox tbxAdminCode;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btnConfirm;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button btnFind;
-        private System.Windows.Forms.ComboBox cbxTicket;
-        private System.Windows.Forms.ComboBox cbxPriceTicket;
         private System.Windows.Forms.TextBox tbxTime;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox tbxMovieName;
@@ -518,11 +470,9 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox tbxTotal;
         private System.Windows.Forms.DataGridView dgvTicket;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn total;
-        private System.Windows.Forms.DataGridViewTextBoxColumn date;
-        private System.Windows.Forms.DataGridView dgvTicketDetails;
+        private System.Windows.Forms.DataGridView dgvBillDetails;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.DateTimePicker dtpBill;
     }
 }

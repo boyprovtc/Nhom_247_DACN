@@ -9,7 +9,7 @@ namespace Nhom_247.Model
     class Showtimes_Model
     {
         public string ID_Movie { get; set; }
-       public string ID_Room { get; set; }
+        public string ID_Room { get; set; }
         public string   MovieName { get; set; }
         public string DATE { get; set; }
         public string  TIME { get; set; }

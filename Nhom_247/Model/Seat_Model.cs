@@ -9,16 +9,11 @@ namespace Nhom_247.Model
     class Seat_Model
     {
        
-        public char Row { get; set; }
-        public int Columm { get; set; }
+        public char SeatNumber { get; set; }
 
-       
-
-        public Seat_Model(char row, int columm)
+        public Seat_Model(char seatNumber)
         {
-            Row = row;
-            Columm = columm;
- 
+            SeatNumber = seatNumber;
         }
     }
 }

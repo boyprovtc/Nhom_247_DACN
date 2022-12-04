@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace Nhom_247.Controller
 {
-    class TicketDetails_Controller
+    class Bill_Controller
     {
         public static MySqlConnection GetConnection()
         {
@@ -27,14 +27,19 @@ namespace Nhom_247.Controller
             }
             return conn;
         }
-        public static void add_TicketDetails(TicketDetails_Model tkd )
+        public static void add_Bill(Bill_Model bill )
         {
-            string conStr = "INSERT INTO ticket VALUES (NULL, @ID_Ticket, @Seatnumber,@MovieName,@Roomnumber,@TIME)";
+            string conStr = "INSERT INTO bill VALUES (NULL,@ID_Seat,@Room,@MovieName,@Date,@Time,@Total)";
             MySqlConnection conn = GetConnection();
             MySqlCommand cmd = new MySqlCommand(conStr, conn);
             cmd.CommandType = CommandType.Text;
-            cmd.Parameters.Add("@TicketType", MySqlDbType.VarChar).Value = tkd.Room;
-            cmd.Parameters.Add("@TicketPrice", MySqlDbType.VarChar).Value = tkd.Time;
+            cmd.Parameters.Add("@ID_Seat", MySqlDbType.VarChar).Value = bill.ID_Bill;
+            cmd.Parameters.Add("@Room", MySqlDbType.VarChar).Value = bill.Room;
+            cmd.Parameters.Add("@MovieName", MySqlDbType.VarChar).Value = bill.MovieName;
+            cmd.Parameters.Add("@Time", MySqlDbType.VarChar).Value = bill.Time;
+            cmd.Parameters.Add("@Date", MySqlDbType.VarChar).Value = bill.Date;
+            cmd.Parameters.Add("@Total", MySqlDbType.VarChar).Value = bill.Total;
+
             try
             {
                 cmd.ExecuteNonQuery();
@@ -48,31 +53,33 @@ namespace Nhom_247.Controller
             conn.Close();
 
         }
-        public static void update_Ticket(Ticket_Model ticket, string id)
+        public static void update_Bill(Bill_Model bill, string id)
         {
-            string conStr = "UPDATE ticket SET TicketType = @TicketType,TicketPrice = @TicketPrice WHERE ID_TICKET = @id";
+            string conStr = "UPDATE bill SET Date = @Date, Total = @Total WHERE ID_Bill = @id";
             MySqlConnection conn = GetConnection();
             MySqlCommand cmd = new MySqlCommand(conStr, conn);
             cmd.CommandType = CommandType.Text;
             cmd.Parameters.Add("@id", MySqlDbType.VarChar).Value = id;
-            cmd.Parameters.Add("@TicketType", MySqlDbType.VarChar).Value = ticket.TicketType;
-            cmd.Parameters.Add("@TicketPrice", MySqlDbType.VarChar).Value = ticket.TicketPrice;
+            //cmd.Parameters.Add("@Date", MySqlDbType.VarChar).Value = bill.Date;
+            //cmd.Parameters.Add("@Total", MySqlDbType.VarChar).Value = bill.Total;
+
             try
             {
                 cmd.ExecuteNonQuery();
-                //  MessageBox.Show("update done", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //    MessageBox.Show("update done", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (MySqlException ex)
             {
 
-                MessageBox.Show("update failed \n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Update failed \n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             conn.Close();
 
         }
-        public static void Delete_TicketType(string id)
+
+        public static void Delete_Bill(string id)
         {
-            string conStr = "DELETE FROM ticket WHERE ID_TICKET = @id";
+            string conStr = "DELETE FROM bill WHERE ID_Bill = @id";
             MySqlConnection conn = GetConnection();
             MySqlCommand cmd = new MySqlCommand(conStr, conn);
             cmd.CommandType = CommandType.Text;
@@ -90,7 +97,7 @@ namespace Nhom_247.Controller
             }
             conn.Close();
         }
-        public static void DisplayNSearchTicket(string query, DataGridView dgvTicket)
+        public static void DisplayNSearchBill(string query, DataGridView dgvBill)
         {
             string conStr = query;
             MySqlConnection conn = GetConnection();
@@ -98,8 +105,10 @@ namespace Nhom_247.Controller
             MySqlDataAdapter adp = new MySqlDataAdapter(cmd);
             DataTable tbl = new DataTable();
             adp.Fill(tbl);
-            dgvTicket.DataSource = tbl;
+            dgvBill.DataSource = tbl;
             conn.Close();
         }
+
+       
     }
 }
