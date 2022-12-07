@@ -45,28 +45,56 @@ namespace Nhom_247
         {
 
             int x, y = 13, khoangcachX = 90, khoangcachY = 50, dem = 1;
-            string seat;
+            
             Button btnGhe;
-            for (int i = 0; i < hang; i++)
+            //for (int i = 0; i < hang; i++)
+            //{
+            //    x = 26;
+            //    for (int j = 0; j < cot; j++)
+            //    {
+
+            //        btnGhe = new Button();
+            //        btnGhe.Location = new Point(x, y);
+            //        btnGhe.Size = new Size(40, 40);
+            //        btnGhe.Text = dem++.ToString();
+
+            //        btnGhe.BackColor = Color.AliceBlue;
+            //        btnGhe.Click += Bt_Click;
+            //        pnMain.Controls.Add(btnGhe);
+            //        x += khoangcachX;
+
+            //    }
+            //    y += khoangcachY;
+            //}
+            try
             {
-                x = 26;
-                for (int j = 0; j < cot; j++)
+                MySqlConnection connection = new MySqlConnection("datasource = localhost; port=3306; username=root; password=;database=247_rapphim");
+                string selectQuery = "select * from seat";
+                connection.Open();
+                MySqlCommand cmd = new MySqlCommand(selectQuery, connection);
+                MySqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
                 {
-                    
                     btnGhe = new Button();
-                    btnGhe.Location = new Point(x, y);
-                    btnGhe.Size = new Size(40, 40);
-                    btnGhe.Text = dem++.ToString();
                     
+                    btnGhe.Size = new Size(40, 40);
+                    btnGhe.Text = reader.GetString("SeatNumber");
+
                     btnGhe.BackColor = Color.AliceBlue;
                     btnGhe.Click += Bt_Click;
                     pnMain.Controls.Add(btnGhe);
-                    x += khoangcachX;
-                   
+                    
+                    
+
+
                 }
-                y += khoangcachY;
+                connection.Close();            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+
             }
-            
+
         }
         private void Edit_Stuff()
         {
