@@ -92,9 +92,9 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(9, 98);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(78, 13);
+            this.label1.Size = new System.Drawing.Size(87, 13);
             this.label1.TabIndex = 4;
-            this.label1.Text = "Chọn giờ chiếu";
+            this.label1.Text = "Chọn ngày chiếu";
             // 
             // label4
             // 
@@ -175,6 +175,7 @@
             this.Controls.Add(this.label3);
             this.Name = "Showtime";
             this.Text = "Showtime";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Showtime_FormClosed);
             this.Load += new System.EventHandler(this.Showtime_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

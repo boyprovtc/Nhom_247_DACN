@@ -61,7 +61,11 @@ namespace Nhom_247.View
 
         }
 
-      
-       
+        private void NhanVien_Info_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            FormAdmin ad = new FormAdmin();
+            ad.Show();
+            this.Hide();
+        }
     }
 }

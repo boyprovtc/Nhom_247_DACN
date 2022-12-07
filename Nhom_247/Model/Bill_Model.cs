@@ -15,17 +15,17 @@ namespace Nhom_247.Model
         public string Time { get; set; }
         public string Date { get; set; }
         public string Total { get; set; }
+        public string TicketDate { get; set; }
 
-        public Bill_Model( string idbill, string room,string movieName, string time, string date, string total)
+        public Bill_Model(string iD_Bill, string room, string movieName, string time, string date, string total, string ticketDate)
         {
-            
-            ID_Bill = idbill;
-            
+            ID_Bill = iD_Bill;
             Room = room;
             MovieName = movieName;
             Time = time;
             Date = date;
             Total = total;
+            TicketDate = ticketDate;
         }
     }
 }

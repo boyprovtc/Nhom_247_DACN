@@ -39,7 +39,7 @@
             // 
             // btnNew
             // 
-            this.btnNew.Location = new System.Drawing.Point(564, 12);
+            this.btnNew.Location = new System.Drawing.Point(468, 12);
             this.btnNew.Name = "btnNew";
             this.btnNew.Size = new System.Drawing.Size(75, 23);
             this.btnNew.TabIndex = 3;
@@ -54,9 +54,9 @@
             this.dtNhanVien.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Edit,
             this.Delete});
-            this.dtNhanVien.Location = new System.Drawing.Point(12, 12);
+            this.dtNhanVien.Location = new System.Drawing.Point(12, 46);
             this.dtNhanVien.Name = "dtNhanVien";
-            this.dtNhanVien.Size = new System.Drawing.Size(531, 550);
+            this.dtNhanVien.Size = new System.Drawing.Size(531, 516);
             this.dtNhanVien.TabIndex = 2;
             this.dtNhanVien.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtNhanVien_CellClick);
             // 
@@ -88,11 +88,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(787, 582);
+            this.ClientSize = new System.Drawing.Size(561, 582);
             this.Controls.Add(this.btnNew);
             this.Controls.Add(this.dtNhanVien);
             this.Name = "NhanVien_Info";
             this.Text = "NhanVIen_Info";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.NhanVien_Info_FormClosed);
             this.Shown += new System.EventHandler(this.NhanVien_Info_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.dtNhanVien)).EndInit();
             this.ResumeLayout(false);

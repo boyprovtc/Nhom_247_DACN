@@ -47,7 +47,6 @@
             this.tbxAdminCode = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.btnConfirm = new System.Windows.Forms.Button();
-            this.btnFind = new System.Windows.Forms.Button();
             this.tbxTime = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.tbxMovieName = new System.Windows.Forms.TextBox();
@@ -62,6 +61,9 @@
             this.label12 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.dtpBill = new System.Windows.Forms.DateTimePicker();
+            this.label7 = new System.Windows.Forms.Label();
+            this.tbxMovieDate = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvShowtime)).BeginInit();
@@ -147,8 +149,9 @@
             this.cbxMovieSelect.FormattingEnabled = true;
             this.cbxMovieSelect.Location = new System.Drawing.Point(118, 103);
             this.cbxMovieSelect.Name = "cbxMovieSelect";
-            this.cbxMovieSelect.Size = new System.Drawing.Size(121, 21);
+            this.cbxMovieSelect.Size = new System.Drawing.Size(259, 21);
             this.cbxMovieSelect.TabIndex = 6;
+            this.cbxMovieSelect.SelectedIndexChanged += new System.EventHandler(this.cbxMovieSelect_SelectedIndexChanged);
             // 
             // label2
             // 
@@ -257,15 +260,6 @@
             this.btnConfirm.Text = "Xac Nhan";
             this.btnConfirm.UseVisualStyleBackColor = true;
             this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click);
-            // 
-            // btnFind
-            // 
-            this.btnFind.Location = new System.Drawing.Point(245, 103);
-            this.btnFind.Name = "btnFind";
-            this.btnFind.Size = new System.Drawing.Size(68, 21);
-            this.btnFind.TabIndex = 19;
-            this.btnFind.Text = "Tìm";
-            this.btnFind.UseVisualStyleBackColor = true;
             // 
             // tbxTime
             // 
@@ -377,29 +371,56 @@
             // 
             // dtpBill
             // 
-            this.dtpBill.Location = new System.Drawing.Point(339, 339);
+            this.dtpBill.Location = new System.Drawing.Point(383, 335);
             this.dtpBill.Name = "dtpBill";
             this.dtpBill.Size = new System.Drawing.Size(200, 20);
             this.dtpBill.TabIndex = 23;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(307, 339);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(70, 13);
+            this.label7.TabIndex = 24;
+            this.label7.Text = "Ngày mua vé";
+            // 
+            // tbxMovieDate
+            // 
+            this.tbxMovieDate.Location = new System.Drawing.Point(357, 391);
+            this.tbxMovieDate.Name = "tbxMovieDate";
+            this.tbxMovieDate.Size = new System.Drawing.Size(151, 20);
+            this.tbxMovieDate.TabIndex = 16;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(289, 394);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(62, 13);
+            this.label13.TabIndex = 17;
+            this.label13.Text = "Ngày Chiếu";
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1629, 825);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.dtpBill);
             this.Controls.Add(this.dgvBillDetails);
             this.Controls.Add(this.dgvTicket);
             this.Controls.Add(this.tbxTotal);
-            this.Controls.Add(this.btnFind);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
+            this.Controls.Add(this.label13);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.tbxRoom);
             this.Controls.Add(this.tbxMovieName);
+            this.Controls.Add(this.tbxMovieDate);
             this.Controls.Add(this.tbxTime);
             this.Controls.Add(this.tbxNumber);
             this.Controls.Add(this.btnConfirm);
@@ -459,7 +480,6 @@
         private System.Windows.Forms.TextBox tbxAdminCode;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btnConfirm;
-        private System.Windows.Forms.Button btnFind;
         private System.Windows.Forms.TextBox tbxTime;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox tbxMovieName;
@@ -474,5 +494,8 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.DateTimePicker dtpBill;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox tbxMovieDate;
+        private System.Windows.Forms.Label label13;
     }
 }

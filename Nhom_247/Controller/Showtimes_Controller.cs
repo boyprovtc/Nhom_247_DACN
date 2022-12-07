@@ -29,12 +29,12 @@ namespace Nhom_247.Controller
         }
         public static void add_Showtime(Showtimes_Model showtimes)
         {
-            string conStr = "INSERT INTO showtimes VALUES (NULL,@ID_Movie,@ID_Room, @MovieName, @TIME, @DATE)";
+            string conStr = "INSERT INTO showtimes VALUES (NULL,@ID_Movie,@ID_Room, @MovieName, @DATE, @TIME)";
             MySqlConnection conn = GetConnection();
             MySqlCommand cmd = new MySqlCommand(conStr, conn);
             cmd.CommandType = CommandType.Text;
-            cmd.Parameters.Add("@ID_Movie", MySqlDbType.VarChar).Value = showtimes.ID_Movie;
-            cmd.Parameters.Add("@ID_Room", MySqlDbType.VarChar).Value = showtimes.ID_Room;
+            cmd.Parameters.Add("@ID_Movie", MySqlDbType.Int32).Value = showtimes.ID_Movie;
+            cmd.Parameters.Add("@ID_Room", MySqlDbType.Int32).Value = showtimes.ID_Room;
             cmd.Parameters.Add("@MovieName", MySqlDbType.VarChar).Value = showtimes.MovieName;
             cmd.Parameters.Add("@TIME", MySqlDbType.VarChar).Value = showtimes.TIME;
             cmd.Parameters.Add("@DATE", MySqlDbType.VarChar).Value = showtimes.DATE;
@@ -53,15 +53,15 @@ namespace Nhom_247.Controller
             conn.Close();
 
         }
-        public static void update_Showtime(Showtimes_Model showtimes, string id)
+        public static void update_Showtime(Showtimes_Model showtimes, string id_showtimes)
         {
-            string conStr = "UPDATE showtimes SET ID_Movie = @ID_Movie, ID_Room =@ID_Room,MovieName = @MovieName, DATE = @DATE, TIME = @TIME WHERE ID_Showtime = @id";
+            string conStr = "UPDATE showtimes SET ID_Movie = @ID_Movie, ID_Room =@ID_Room,MovieName = @MovieName, DATE = @DATE, TIME = @TIME WHERE ID_Showtime = @ID";
             MySqlConnection conn = GetConnection();
             MySqlCommand cmd = new MySqlCommand(conStr, conn);
             cmd.CommandType = CommandType.Text;
-            cmd.Parameters.Add("@id", MySqlDbType.VarChar).Value = id;
-            cmd.Parameters.Add("@ID_Movie", MySqlDbType.VarChar).Value = showtimes.ID_Movie;
-            cmd.Parameters.Add("@ID_Room", MySqlDbType.VarChar).Value = showtimes.ID_Room;
+            cmd.Parameters.Add("@ID", MySqlDbType.VarChar).Value = id_showtimes;
+            cmd.Parameters.Add("@ID_Movie", MySqlDbType.Int32).Value = showtimes.ID_Movie;
+            cmd.Parameters.Add("@ID_Room", MySqlDbType.Int32).Value = showtimes.ID_Room;
             cmd.Parameters.Add("@MovieName", MySqlDbType.VarChar).Value = showtimes.MovieName;
             cmd.Parameters.Add("@TIME", MySqlDbType.VarChar).Value = showtimes.TIME;
             cmd.Parameters.Add("@DATE", MySqlDbType.VarChar).Value = showtimes.DATE;

@@ -29,7 +29,7 @@ namespace Nhom_247.Controller
         }
         public static void add_Bill(Bill_Model bill )
         {
-            string conStr = "INSERT INTO bill VALUES (NULL,@ID_Seat,@Room,@MovieName,@Date,@Time,@Total)";
+            string conStr = "INSERT INTO bill VALUES (NULL,@ID_Seat,@Room,@MovieName,@Date,@Time,@Total,@TicketDate)";
             MySqlConnection conn = GetConnection();
             MySqlCommand cmd = new MySqlCommand(conStr, conn);
             cmd.CommandType = CommandType.Text;
@@ -39,6 +39,7 @@ namespace Nhom_247.Controller
             cmd.Parameters.Add("@Time", MySqlDbType.VarChar).Value = bill.Time;
             cmd.Parameters.Add("@Date", MySqlDbType.VarChar).Value = bill.Date;
             cmd.Parameters.Add("@Total", MySqlDbType.VarChar).Value = bill.Total;
+            cmd.Parameters.Add("@TicketDate", MySqlDbType.VarChar).Value = bill.TicketDate;
 
             try
             {

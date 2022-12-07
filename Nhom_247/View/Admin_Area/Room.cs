@@ -77,6 +77,11 @@ namespace Nhom_247.View.Admin_Area
             _parent.Display();
         }
 
+        private void Room_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.Hide();
+        }
+
         private void btnRefresh_Click_1(object sender, EventArgs e)
         {
             Clear();

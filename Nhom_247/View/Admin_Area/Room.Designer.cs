@@ -101,6 +101,7 @@
             this.Controls.Add(this.btnAdd_Room);
             this.Name = "Room";
             this.Text = "Room";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Room_FormClosed);
             this.Load += new System.EventHandler(this.Room_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

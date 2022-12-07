@@ -57,28 +57,7 @@ namespace Nhom_247
                     btnGhe.Location = new Point(x, y);
                     btnGhe.Size = new Size(40, 40);
                     btnGhe.Text = dem++.ToString();
-                    //try
-                    //{
-                    //    MySqlConnection connection = new MySqlConnection("datasource = localhost; port=3306; username=root; password=;database=247_rapphim");
-                    //    string selectQuery = "select ID_Seat from bill";
-                    //    connection.Open();
-                    //    MySqlCommand cmd = new MySqlCommand(selectQuery, connection);
-                    //    MySqlDataReader reader = cmd.ExecuteReader();
-                    //    while (reader.Read())
-                    //    {
-                    //        seat = reader.GetString("ID_Seat");
-                    //    }
-
-                    //}
-                    //catch (Exception ex)
-                    //{
-                    //    MessageBox.Show(ex.Message);
-
-                    //}
-                    //if (btnGhe.Text == seat.ToString())
-                    //{
-                    //    btnGhe.Enabled = false;
-                    //}
+                    
                     btnGhe.BackColor = Color.AliceBlue;
                     btnGhe.Click += Bt_Click;
                     pnMain.Controls.Add(btnGhe);
@@ -101,6 +80,7 @@ namespace Nhom_247
             tbxTime.ReadOnly = true;
             tbxNumber.ReadOnly = true;
             dtpBill.Enabled = false;
+            dtpBill.Format = DateTimePickerFormat.Short;
         }
         private void LoadToComboBox()
         {
@@ -145,8 +125,12 @@ namespace Nhom_247
                 MessageBox.Show("Ghế này đã được mua!");
                 return;
             }
+            if(btnGhe.BackColor == Color.Blue)
+            {
+                tbxNumber.Text = string.Empty;
+            }    
             btnGhe.BackColor = (btnGhe.BackColor == Color.AliceBlue) ? Color.Blue : Color.AliceBlue;
-           
+            
         }
 
         private void adminToolStripMenuItem_Click(object sender, EventArgs e)
@@ -227,7 +211,7 @@ namespace Nhom_247
                 return;
 
             }
-            Bill_Model b = new Bill_Model(tbxNumber.Text.Trim(),tbxRoom.Text.Trim(),tbxMovieName.Text.Trim(),tbxTime.Text.Trim(),dtpBill.Text.Trim(),tbxTotal.Text.Trim());
+            Bill_Model b = new Bill_Model(tbxNumber.Text.Trim(),tbxRoom.Text.Trim(),tbxMovieName.Text.Trim(), tbxTime.Text.Trim(),tbxMovieDate.Text.Trim(),tbxTotal.Text.Trim(),dtpBill.Text.Trim());
             Bill_Controller.add_Bill(b);
             Display();
             
@@ -282,7 +266,8 @@ namespace Nhom_247
         {
             tbxRoom.Text = dgvShowtime.Rows[e.RowIndex].Cells[2].Value.ToString();
             tbxMovieName.Text = dgvShowtime.Rows[e.RowIndex].Cells[3].Value.ToString();
-            tbxTime.Text = dgvShowtime.Rows[e.RowIndex].Cells[5].Value.ToString();
+            tbxTime.Text = dgvShowtime.Rows[e.RowIndex].Cells[4].Value.ToString();
+            tbxMovieDate.Text = dgvShowtime.Rows[e.RowIndex].Cells[5].Value.ToString();
         }
 
         private void btnDetails_Click(object sender, EventArgs e)
@@ -292,5 +277,12 @@ namespace Nhom_247
             //Display();
 
         }
+
+        private void cbxMovieSelect_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Showtimes_Controller.DisplayNSearchShowTime("select * from showtimes where MovieName like '%" + cbxMovieSelect.Text + "%'", dgvShowtime);
+        }
+
+      
     }
 }

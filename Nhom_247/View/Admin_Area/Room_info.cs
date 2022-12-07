@@ -60,7 +60,13 @@ namespace Nhom_247.View.Admin_Area
         private void Room_info_Shown(object sender, EventArgs e)
         {
             Display();
+        }
 
+        private void Room_info_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            FormAdmin ad = new FormAdmin();
+            ad.Show();
+            this.Hide();
         }
     }
 }

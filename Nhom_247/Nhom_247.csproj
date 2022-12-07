@@ -190,22 +190,22 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controller\Food_Controller.cs" />
+    <Compile Include="Controller\login_controller.cs" />
     <Compile Include="Controller\Movie_Controller.cs" />
     <Compile Include="Controller\NhanVien_Controller.cs" />
     <Compile Include="Controller\Room_Controller.cs" />
     <Compile Include="Controller\Seat_Controller.cs" />
     <Compile Include="Controller\Showtimes_Controller.cs" />
     <Compile Include="Controller\Bill_Controller.cs" />
-    <Compile Include="Controller\Ticket_Controller.cs" />
     <Compile Include="Counter_class.cs" />
     <Compile Include="Model\Bill_Model.cs" />
     <Compile Include="Model\Food_Model.cs" />
+    <Compile Include="Model\login_model.cs" />
     <Compile Include="Model\Movie_Model.cs" />
     <Compile Include="Model\NhanVien_Model.cs" />
     <Compile Include="Model\Room_Model.cs" />
     <Compile Include="Model\Seat_Model.cs" />
     <Compile Include="Model\Showtimes_Model.cs" />
-    <Compile Include="Model\Ticket_Model.cs" />
     <Compile Include="Report\Database1.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -247,12 +247,6 @@
     <Compile Include="View\Admin_Area\Showtime.Designer.cs">
       <DependentUpon>Showtime.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Admin_Area\TicketType.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\Admin_Area\TicketType.Designer.cs">
-      <DependentUpon>TicketType.cs</DependentUpon>
-    </Compile>
     <Compile Include="View\Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -285,6 +279,12 @@
     <Compile Include="View\Report.Designer.cs">
       <DependentUpon>Report.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\Resigter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Resigter.Designer.cs">
+      <DependentUpon>Resigter.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\Seat.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -309,9 +309,6 @@
     <EmbeddedResource Include="View\Admin_Area\Showtime.resx">
       <DependentUpon>Showtime.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\Admin_Area\TicketType.resx">
-      <DependentUpon>TicketType.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="View\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
@@ -331,6 +328,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\Report.resx">
       <DependentUpon>Report.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Resigter.resx">
+      <DependentUpon>Resigter.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Seat.resx">
       <DependentUpon>Seat.cs</DependentUpon>

@@ -12,15 +12,17 @@ using System.Data.Common;
 using Nhom_247;
 using System.IO;
 using MySql.Data.MySqlClient;
+using Nhom_247.View;
 
 namespace Nhom_247
 {
     public partial class Login : Form
     {
-       
+        Resigter form1;
         public Login()
         {
             InitializeComponent();
+            form1 = new Resigter(this);
         }
 
         public static MySqlConnection GetConnection()
@@ -41,7 +43,7 @@ namespace Nhom_247
 
         private void Login_Load(object sender, EventArgs e)
         {
-
+            btnResigter.Enabled = false;
             this.lblUserName.BackColor = System.Drawing.Color.Transparent;
             this.lblPassWord.BackColor = System.Drawing.Color.Transparent;
             this.btnLogin.BackColor = System.Drawing.Color.Transparent;
@@ -76,6 +78,19 @@ namespace Nhom_247
             {
                 MessageBox.Show("lUsername And Password Not Match! \n");
             }
+            
+        }
+
+        private void btnResigter_Click(object sender, EventArgs e)
+        {
+            form1.ShowDialog();
+        }
+
+        private void btnChange_Click(object sender, EventArgs e)
+        {
+            form1.username = tbxUserName.Text;
+            form1.update_info();
+            form1.ShowDialog();
             
         }
     }

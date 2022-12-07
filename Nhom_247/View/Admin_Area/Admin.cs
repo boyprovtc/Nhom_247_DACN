@@ -14,7 +14,7 @@ using MessageBox = System.Windows.Forms.MessageBox;
 using Nhom_247.Model;
 using System.Xml.Linq;
 using Nhom_247.View;
-using Nhom_247.View.Admin;
+
 using Nhom_247.View.Admin_Area;
 using System.Data.SqlClient;
 using MySql.Data.MySqlClient;
@@ -25,14 +25,13 @@ namespace Nhom_247
 {
     public partial class FormAdmin : Form
     {
-        TicketType form;
+        
         Food form2;
         Movie form3;
         Showtime form4;
         public FormAdmin()
         {
             InitializeComponent();
-            form = new TicketType(this);
             form2 = new Food(this);
             form3 = new Movie(this);
             form4 = new Showtime(this);
@@ -42,63 +41,17 @@ namespace Nhom_247
             Movie_Controller.DisplayNSearchMovie("SELECT * FROM movie", dgvMovie);
             Food_Controller.DisplayNSearchFood("SELECT * FROM food", dgvFood);
             Showtimes_Controller.DisplayNSearchShowTime("SELECT * FROM showtimes", dgvShowtime);
-            //try
-            //{
-            //    MySqlConnection connection = new MySqlConnection("datasource = localhost; port=3306; username=root; password=;database=247_rapphim");
-            //    string selectQuery2 = "select * from room";
-            //    connection.Open();
-            //    MySqlCommand cmd2 = new MySqlCommand(selectQuery2, connection);
-            //    MySqlDataReader reader2 = cmd2.ExecuteReader();
-            //    while (reader2.Read())
-            //    {
-            //        cbxRoom.Items.Add(reader2.GetString("RoomNumber"));
-                   
-            //    }
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show(ex.Message);
-
-            //}
+            
         }
         private void Admin_Load(object sender, EventArgs e)
         {
             WindowState = FormWindowState.Maximized;
-            //dtp.Format = DateTimePickerFormat.Time;
-            //dtp.ShowUpDown = true;
             Display();
-            //try
-            //{
-            //    MySqlConnection connection = new MySqlConnection("datasource = localhost; port=3306; username=root; password=;database=247_rapphim");
-            //    string selectQuery = "select * from movie";
-            //    connection.Open();
-            //    MySqlCommand cmd = new MySqlCommand(selectQuery, connection);
-            //    MySqlDataReader reader = cmd.ExecuteReader();
-            //    while (reader.Read())
-            //    {
-            //        cbxMovie.Items.Add(reader.GetString("MovieName"));
-                    
-            //    }
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show(ex.Message);
            
-            //}
         }
        
 
-        private void Admin_FormClosed(object sender, FormClosedEventArgs e)
-        {
-
-            if (MessageBox.Show("Bạn Có Muốn Thoát không", "Thông Báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-            {
-                MainForm mF = new MainForm();
-                mF.Show();
-                this.Hide();
-
-            }
-        }
+        
         public void Clear()
         {
   //          tbxMovieName.Text = tbxMovieAbout.Text = tbxFoodName.Text = tbxFoodPrice.Text = tbxticketprice.Text = tbxtickettype.Text = String.Empty;
@@ -107,8 +60,8 @@ namespace Nhom_247
         private void tbnNhanVien_Click(object sender, EventArgs e)
         {
             NhanVien_Info nvi = new NhanVien_Info();
-            this.Hide();
             nvi.Show();
+            this.Hide();
         }
 
      
@@ -182,12 +135,9 @@ namespace Nhom_247
         {
             Room_info ri = new Room_info();
             ri.Show();
+            this.Hide();
         }
-      
 
-       
-       
-      
         private void btnAddShowTime_Click(object sender, EventArgs e)
         {
             form4.Clear();
@@ -200,8 +150,8 @@ namespace Nhom_247
             {
                 form4.Clear();
                 form4.id_showtimes =  dgvShowtime.Rows[e.RowIndex].Cells["ID_Showtime"].Value.ToString();
-                form4.id = dgvShowtime.Rows[e.RowIndex].Cells["ID_Movie"].Value.ToString();
-                form4.id_room = dgvShowtime.Rows[e.RowIndex].Cells["ID_Room"].Value.ToString();
+                form4.id_movie = Convert.ToInt32 (dgvShowtime.Rows[e.RowIndex].Cells["ID_Movie"].Value);
+                form4.id_room = Convert.ToInt32(dgvShowtime.Rows[e.RowIndex].Cells["ID_Room"].Value);
                 form4.name = dgvShowtime.Rows[e.RowIndex].Cells["MovieName"].Value.ToString();
                 form4.time = dgvShowtime.Rows[e.RowIndex].Cells["DATE"].Value.ToString();
                 form4.date = dgvShowtime.Rows[e.RowIndex].Cells["TIME"].Value.ToString();
@@ -215,7 +165,7 @@ namespace Nhom_247
             {
                 if (MessageBox.Show("Do you want to delete ?", "Informatioon", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information) == DialogResult.Yes)
                 {
-                    Showtimes_Controller.Delete_Showtime(dgvShowtime.Rows[e.RowIndex].Cells[2].Value.ToString());
+                    Showtimes_Controller.Delete_Showtime( dgvShowtime.Rows[e.RowIndex].Cells[2].Value.ToString());
                     Display();
                 }
                 return;
@@ -230,5 +180,7 @@ namespace Nhom_247
             mF.Show();
             this.Hide();
         }
+
+      
     }
 }

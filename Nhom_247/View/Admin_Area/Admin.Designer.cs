@@ -79,7 +79,7 @@
             this.gbMovie.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbMovie.Location = new System.Drawing.Point(12, 358);
             this.gbMovie.Name = "gbMovie";
-            this.gbMovie.Size = new System.Drawing.Size(737, 315);
+            this.gbMovie.Size = new System.Drawing.Size(1126, 315);
             this.gbMovie.TabIndex = 2;
             this.gbMovie.TabStop = false;
             this.gbMovie.Text = "Chỉnh sửa Phim";
@@ -87,7 +87,7 @@
             // btnMovieAdd
             // 
             this.btnMovieAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnMovieAdd.Location = new System.Drawing.Point(622, 23);
+            this.btnMovieAdd.Location = new System.Drawing.Point(1011, 23);
             this.btnMovieAdd.Name = "btnMovieAdd";
             this.btnMovieAdd.Size = new System.Drawing.Size(109, 31);
             this.btnMovieAdd.TabIndex = 5;
@@ -117,12 +117,13 @@
             this.Delete_Movie});
             this.dgvMovie.Location = new System.Drawing.Point(6, 61);
             this.dgvMovie.Name = "dgvMovie";
-            this.dgvMovie.Size = new System.Drawing.Size(725, 248);
+            this.dgvMovie.Size = new System.Drawing.Size(1114, 248);
             this.dgvMovie.TabIndex = 0;
             this.dgvMovie.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMovie_CellClick);
             // 
             // Edit_Movie
             // 
+            this.Edit_Movie.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.Edit_Movie.HeaderText = "";
             this.Edit_Movie.Name = "Edit_Movie";
             this.Edit_Movie.Resizable = System.Windows.Forms.DataGridViewTriState.True;
@@ -132,6 +133,7 @@
             // 
             // Delete_Movie
             // 
+            this.Delete_Movie.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.Delete_Movie.HeaderText = "";
             this.Delete_Movie.Name = "Delete_Movie";
             this.Delete_Movie.Text = "Delete";
@@ -145,9 +147,9 @@
             this.gbFastFood.Controls.Add(this.btnAddFood);
             this.gbFastFood.Controls.Add(this.dgvFood);
             this.gbFastFood.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbFastFood.Location = new System.Drawing.Point(755, 358);
+            this.gbFastFood.Location = new System.Drawing.Point(1144, 358);
             this.gbFastFood.Name = "gbFastFood";
-            this.gbFastFood.Size = new System.Drawing.Size(408, 315);
+            this.gbFastFood.Size = new System.Drawing.Size(600, 315);
             this.gbFastFood.TabIndex = 3;
             this.gbFastFood.TabStop = false;
             this.gbFastFood.Text = "Chỉnh sửa thức ăn nhanh";
@@ -184,12 +186,13 @@
             this.Delete_Food});
             this.dgvFood.Location = new System.Drawing.Point(6, 60);
             this.dgvFood.Name = "dgvFood";
-            this.dgvFood.Size = new System.Drawing.Size(396, 249);
+            this.dgvFood.Size = new System.Drawing.Size(588, 249);
             this.dgvFood.TabIndex = 0;
             this.dgvFood.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvFood_CellClick);
             // 
             // Edit_Food
             // 
+            this.Edit_Food.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.Edit_Food.HeaderText = "";
             this.Edit_Food.Name = "Edit_Food";
             this.Edit_Food.Text = "Edit";
@@ -197,6 +200,7 @@
             // 
             // Delete_Food
             // 
+            this.Delete_Food.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.Delete_Food.HeaderText = "";
             this.Delete_Food.Name = "Delete_Food";
             this.Delete_Food.Text = "Delete";
@@ -211,14 +215,15 @@
             this.gbSuatChieu.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbSuatChieu.Location = new System.Drawing.Point(12, 74);
             this.gbSuatChieu.Name = "gbSuatChieu";
-            this.gbSuatChieu.Size = new System.Drawing.Size(1151, 269);
+            this.gbSuatChieu.Size = new System.Drawing.Size(1732, 269);
             this.gbSuatChieu.TabIndex = 4;
             this.gbSuatChieu.TabStop = false;
             this.gbSuatChieu.Text = "Cài đặt suất chiếu";
             // 
             // btnAddShowTime
             // 
-            this.btnAddShowTime.Location = new System.Drawing.Point(1033, 25);
+            this.btnAddShowTime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAddShowTime.Location = new System.Drawing.Point(1617, 25);
             this.btnAddShowTime.Name = "btnAddShowTime";
             this.btnAddShowTime.Size = new System.Drawing.Size(109, 31);
             this.btnAddShowTime.TabIndex = 5;
@@ -237,27 +242,32 @@
             this.Delete_showtime});
             this.dgvShowtime.Location = new System.Drawing.Point(10, 62);
             this.dgvShowtime.Name = "dgvShowtime";
-            this.dgvShowtime.Size = new System.Drawing.Size(1135, 201);
+            this.dgvShowtime.Size = new System.Drawing.Size(1716, 201);
             this.dgvShowtime.TabIndex = 0;
             this.dgvShowtime.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvShowtime_CellClick);
             // 
             // Edit_Showtimes
             // 
+            this.Edit_Showtimes.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.Edit_Showtimes.HeaderText = "";
             this.Edit_Showtimes.Name = "Edit_Showtimes";
             this.Edit_Showtimes.Text = "Edit";
             this.Edit_Showtimes.UseColumnTextForButtonValue = true;
+            this.Edit_Showtimes.Width = 110;
             // 
             // Delete_showtime
             // 
+            this.Delete_showtime.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.Delete_showtime.HeaderText = "";
             this.Delete_showtime.Name = "Delete_showtime";
             this.Delete_showtime.Text = "Delete";
             this.Delete_showtime.UseColumnTextForButtonValue = true;
+            this.Delete_showtime.Width = 110;
             // 
             // tbnNhanVien
             // 
-            this.tbnNhanVien.Location = new System.Drawing.Point(948, 37);
+            this.tbnNhanVien.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbnNhanVien.Location = new System.Drawing.Point(1532, 46);
             this.tbnNhanVien.Name = "tbnNhanVien";
             this.tbnNhanVien.Size = new System.Drawing.Size(102, 31);
             this.tbnNhanVien.TabIndex = 5;
@@ -267,7 +277,8 @@
             // 
             // btnRoom
             // 
-            this.btnRoom.Location = new System.Drawing.Point(1056, 37);
+            this.btnRoom.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnRoom.Location = new System.Drawing.Point(1640, 46);
             this.btnRoom.Name = "btnRoom";
             this.btnRoom.Size = new System.Drawing.Size(102, 31);
             this.btnRoom.TabIndex = 5;
@@ -289,7 +300,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1175, 676);
+            this.ClientSize = new System.Drawing.Size(1756, 676);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnRoom);
             this.Controls.Add(this.tbnNhanVien);
@@ -299,7 +310,6 @@
             this.Controls.Add(this.HelloLable);
             this.Name = "FormAdmin";
             this.Text = "Admin";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Admin_FormClosed);
             this.Load += new System.EventHandler(this.Admin_Load);
             this.gbMovie.ResumeLayout(false);
             this.gbMovie.PerformLayout();
@@ -329,14 +339,14 @@
         private System.Windows.Forms.GroupBox gbSuatChieu;
         private System.Windows.Forms.DataGridView dgvShowtime;
         private System.Windows.Forms.Button tbnNhanVien;
-        private System.Windows.Forms.DataGridViewButtonColumn Edit_Food;
-        private System.Windows.Forms.DataGridViewButtonColumn Delete_Food;
-        private System.Windows.Forms.DataGridViewButtonColumn Edit_Movie;
-        private System.Windows.Forms.DataGridViewButtonColumn Delete_Movie;
         private System.Windows.Forms.Button btnRoom;
         private System.Windows.Forms.Button btnAddShowTime;
+        private System.Windows.Forms.Button btnExit;
+        private System.Windows.Forms.DataGridViewButtonColumn Edit_Movie;
+        private System.Windows.Forms.DataGridViewButtonColumn Delete_Movie;
+        private System.Windows.Forms.DataGridViewButtonColumn Edit_Food;
+        private System.Windows.Forms.DataGridViewButtonColumn Delete_Food;
         private System.Windows.Forms.DataGridViewButtonColumn Edit_Showtimes;
         private System.Windows.Forms.DataGridViewButtonColumn Delete_showtime;
-        private System.Windows.Forms.Button btnExit;
     }
 }

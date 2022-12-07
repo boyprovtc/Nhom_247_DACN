@@ -37,7 +37,7 @@ namespace Nhom_247.View.Admin_Area
 
         private void Food_Load(object sender, EventArgs e)
         {
-           // tbxFoodID.ReadOnly = Enabled;
+           tbxFoodID.ReadOnly = true;
         }
 
         private async void btnFood_add_Click(object sender, EventArgs e)
