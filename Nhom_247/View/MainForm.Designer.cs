@@ -37,8 +37,6 @@
             this.dgvShowtime = new System.Windows.Forms.DataGridView();
             this.cbxMovieSelect = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.dgvFood = new System.Windows.Forms.DataGridView();
@@ -64,14 +62,22 @@
             this.label7 = new System.Windows.Forms.Label();
             this.tbxMovieDate = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
+            this.btnPrintReport = new System.Windows.Forms.Button();
+            this.dgvFoodBill = new System.Windows.Forms.DataGridView();
+            this.tbxPrice = new System.Windows.Forms.TextBox();
+            this.tbxFoodName = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.tbxID_Food = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvShowtime)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFood)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTicket)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBillDetails)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvFoodBill)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -162,24 +168,6 @@
             this.label2.TabIndex = 7;
             this.label2.Text = "Ten Phim";
             // 
-            // numericUpDown1
-            // 
-            this.numericUpDown1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.numericUpDown1.Location = new System.Drawing.Point(1311, 107);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(128, 20);
-            this.numericUpDown1.TabIndex = 8;
-            // 
-            // label3
-            // 
-            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(1243, 109);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(49, 13);
-            this.label3.TabIndex = 9;
-            this.label3.Text = "Số lượng";
-            // 
             // label4
             // 
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -210,10 +198,11 @@
             this.dgvFood.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvFood.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvFood.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvFood.Location = new System.Drawing.Point(1128, 139);
+            this.dgvFood.Location = new System.Drawing.Point(979, 139);
             this.dgvFood.Name = "dgvFood";
-            this.dgvFood.Size = new System.Drawing.Size(412, 280);
+            this.dgvFood.Size = new System.Drawing.Size(561, 280);
             this.dgvFood.TabIndex = 5;
+            this.dgvFood.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvFood_CellClick);
             // 
             // BtnPrintTickey
             // 
@@ -228,12 +217,13 @@
             // button2
             // 
             this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button2.Location = new System.Drawing.Point(1128, 426);
+            this.button2.Location = new System.Drawing.Point(1060, 425);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 11;
             this.button2.Text = "In Vé";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // tbxAdminCode
             // 
@@ -401,23 +391,108 @@
             this.label13.TabIndex = 17;
             this.label13.Text = "Ngày Chiếu";
             // 
+            // btnPrintReport
+            // 
+            this.btnPrintReport.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnPrintReport.Location = new System.Drawing.Point(566, 844);
+            this.btnPrintReport.Name = "btnPrintReport";
+            this.btnPrintReport.Size = new System.Drawing.Size(106, 23);
+            this.btnPrintReport.TabIndex = 25;
+            this.btnPrintReport.Text = "Print Report";
+            this.btnPrintReport.UseVisualStyleBackColor = true;
+            this.btnPrintReport.Click += new System.EventHandler(this.btnPrintReport_Click);
+            // 
+            // dgvFoodBill
+            // 
+            this.dgvFoodBill.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvFoodBill.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvFoodBill.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvFoodBill.Location = new System.Drawing.Point(979, 562);
+            this.dgvFoodBill.Name = "dgvFoodBill";
+            this.dgvFoodBill.Size = new System.Drawing.Size(561, 276);
+            this.dgvFoodBill.TabIndex = 21;
+            this.dgvFoodBill.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTicket_CellClick);
+            // 
+            // tbxPrice
+            // 
+            this.tbxPrice.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbxPrice.Location = new System.Drawing.Point(1328, 478);
+            this.tbxPrice.Name = "tbxPrice";
+            this.tbxPrice.Size = new System.Drawing.Size(212, 20);
+            this.tbxPrice.TabIndex = 16;
+            // 
+            // tbxFoodName
+            // 
+            this.tbxFoodName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbxFoodName.Location = new System.Drawing.Point(1328, 452);
+            this.tbxFoodName.Name = "tbxFoodName";
+            this.tbxFoodName.Size = new System.Drawing.Size(212, 20);
+            this.tbxFoodName.TabIndex = 16;
+            // 
+            // label3
+            // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(1274, 455);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(39, 13);
+            this.label3.TabIndex = 17;
+            this.label3.Text = "combo";
+            // 
+            // label14
+            // 
+            this.label14.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(1274, 483);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(31, 13);
+            this.label14.TabIndex = 17;
+            this.label14.Text = "Price";
+            // 
+            // tbxID_Food
+            // 
+            this.tbxID_Food.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbxID_Food.Location = new System.Drawing.Point(1328, 427);
+            this.tbxID_Food.Name = "tbxID_Food";
+            this.tbxID_Food.Size = new System.Drawing.Size(212, 20);
+            this.tbxID_Food.TabIndex = 16;
+            // 
+            // label15
+            // 
+            this.label15.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(1274, 430);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(50, 13);
+            this.label15.TabIndex = 17;
+            this.label15.Text = "id combo";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1629, 825);
+            this.ClientSize = new System.Drawing.Size(1629, 922);
+            this.Controls.Add(this.btnPrintReport);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.dtpBill);
             this.Controls.Add(this.dgvBillDetails);
+            this.Controls.Add(this.dgvFoodBill);
             this.Controls.Add(this.dgvTicket);
             this.Controls.Add(this.tbxTotal);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label12);
+            this.Controls.Add(this.label15);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label13);
+            this.Controls.Add(this.label14);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label11);
+            this.Controls.Add(this.tbxID_Food);
+            this.Controls.Add(this.tbxFoodName);
+            this.Controls.Add(this.tbxPrice);
             this.Controls.Add(this.tbxRoom);
             this.Controls.Add(this.tbxMovieName);
             this.Controls.Add(this.tbxMovieDate);
@@ -429,8 +504,6 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.BtnPrintTickey);
             this.Controls.Add(this.tableLayoutPanel2);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.numericUpDown1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.cbxMovieSelect);
             this.Controls.Add(this.dgvFood);
@@ -448,12 +521,12 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvShowtime)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFood)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTicket)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBillDetails)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvFoodBill)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -468,8 +541,6 @@
         private System.Windows.Forms.DataGridView dgvShowtime;
         private System.Windows.Forms.ComboBox cbxMovieSelect;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.DataGridView dgvFood;
@@ -497,5 +568,13 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox tbxMovieDate;
         private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Button btnPrintReport;
+        private System.Windows.Forms.DataGridView dgvFoodBill;
+        private System.Windows.Forms.TextBox tbxPrice;
+        private System.Windows.Forms.TextBox tbxFoodName;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.TextBox tbxID_Food;
+        private System.Windows.Forms.Label label15;
     }
 }

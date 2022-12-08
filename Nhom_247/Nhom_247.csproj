@@ -74,6 +74,24 @@
     <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.6.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1537.0\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1537.0\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1537.0\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1537.0\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1537.0\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Threading.Tasks, Version=1.0.12.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Bcl.Async.1.0.168\lib\net40\Microsoft.Threading.Tasks.dll</HintPath>
     </Reference>
@@ -171,6 +189,7 @@
     <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
     </Reference>
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -189,6 +208,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controller\FoodBill_Controller.cs" />
     <Compile Include="Controller\Food_Controller.cs" />
     <Compile Include="Controller\login_controller.cs" />
     <Compile Include="Controller\Movie_Controller.cs" />
@@ -197,8 +217,8 @@
     <Compile Include="Controller\Seat_Controller.cs" />
     <Compile Include="Controller\Showtimes_Controller.cs" />
     <Compile Include="Controller\Bill_Controller.cs" />
-    <Compile Include="Counter_class.cs" />
     <Compile Include="Model\Bill_Model.cs" />
+    <Compile Include="Model\FoodBill_Model.cs" />
     <Compile Include="Model\Food_Model.cs" />
     <Compile Include="Model\login_model.cs" />
     <Compile Include="Model\Movie_Model.cs" />
@@ -206,11 +226,19 @@
     <Compile Include="Model\Room_Model.cs" />
     <Compile Include="Model\Seat_Model.cs" />
     <Compile Include="Model\Showtimes_Model.cs" />
-    <Compile Include="Report\Database1.cs">
+    <Compile Include="Report\DataSet1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Database1.tt</DependentUpon>
+      <DependentUpon>DataSet1.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Report\FormReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report\FormReport.Designer.cs">
+      <DependentUpon>FormReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\mysql.cs" />
+    <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="View\Admin_Area\Admin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -273,12 +301,6 @@
     <Compile Include="View\Admin_Area\NhanVien_Info.Designer.cs">
       <DependentUpon>NhanVien_Info.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Report.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\Report.Designer.cs">
-      <DependentUpon>Report.cs</DependentUpon>
-    </Compile>
     <Compile Include="View\Resigter.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -291,6 +313,12 @@
     <Compile Include="View\Seat.Designer.cs">
       <DependentUpon>Seat.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Report\FormReport.resx">
+      <DependentUpon>FormReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report1.rdlc">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\Admin_Area\Admin.resx">
       <DependentUpon>Admin.cs</DependentUpon>
     </EmbeddedResource>
@@ -326,9 +354,6 @@
     <EmbeddedResource Include="View\Admin_Area\NhanVien_Info.resx">
       <DependentUpon>NhanVien_Info.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\Report.resx">
-      <DependentUpon>Report.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="View\Resigter.resx">
       <DependentUpon>Resigter.cs</DependentUpon>
     </EmbeddedResource>
@@ -355,7 +380,17 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Report\EF.Reverse.POCO.v3.ttinclude" />
+    <None Include="Report\DataSet1.xsc">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="Report\DataSet1.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet1.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Report\DataSet1.xss">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </None>
     <None Include="Resources\White Blue Minimalist Motivational Desktop Wallpaper1.png" />
   </ItemGroup>
   <ItemGroup>
@@ -374,11 +409,21 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Report\Database1.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Database1.cs</LastGenOutput>
+    <Content Include="SqlServerTypes\readme.htm" />
+    <Content Include="SqlServerTypes\x64\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" />
   <Target Name="EnsureBclBuildImported" BeforeTargets="BeforeBuild" Condition="'$(BclBuildImported)' == ''">

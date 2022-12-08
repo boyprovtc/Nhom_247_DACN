@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using Nhom_247.Controller;
 using Nhom_247.Model;
+using Nhom_247.Report;
 using Nhom_247.View;
 using Nhom_247.View.Admin_Area;
 
@@ -18,7 +19,7 @@ namespace Nhom_247
 {
     public partial class MainForm : Form
     {
-       
+
         Showtime form4;
         //private int IdTicket;
         private DataTable tblTicketDetails;
@@ -27,7 +28,7 @@ namespace Nhom_247
             InitializeComponent();
             //IdTicket = 1;
             tblTicketDetails = new DataTable();
-            tblTicketDetails.Columns.Add("ID_Ticket",typeof(string));
+            tblTicketDetails.Columns.Add("ID_Ticket", typeof(string));
             tblTicketDetails.Columns.Add("Seat_Number", typeof(int));
             tblTicketDetails.Columns.Add("Price", typeof(double));
 
@@ -39,33 +40,15 @@ namespace Nhom_247
             Food_Controller.DisplayNSearchFood("Select * from food", dgvFood);
             Bill_Controller.DisplayNSearchBill("SELECT ID_bill,ID_Seat,Room,MovieName FROM bill", dgvTicket);
             Bill_Controller.DisplayNSearchBill("SELECT * FROM bill", dgvBillDetails);
-
+            FoodBill_Controller.DisplayNSearchBill("SELECT * FROM foodbill", dgvFoodBill);
         }
-        private void KhoiTaoGhe( int hang, int cot)
+        private void KhoiTaoGhe()
         {
 
-            int x, y = 13, khoangcachX = 90, khoangcachY = 50, dem = 1;
-            
+           
+
             Button btnGhe;
-            //for (int i = 0; i < hang; i++)
-            //{
-            //    x = 26;
-            //    for (int j = 0; j < cot; j++)
-            //    {
-
-            //        btnGhe = new Button();
-            //        btnGhe.Location = new Point(x, y);
-            //        btnGhe.Size = new Size(40, 40);
-            //        btnGhe.Text = dem++.ToString();
-
-            //        btnGhe.BackColor = Color.AliceBlue;
-            //        btnGhe.Click += Bt_Click;
-            //        pnMain.Controls.Add(btnGhe);
-            //        x += khoangcachX;
-
-            //    }
-            //    y += khoangcachY;
-            //}
+            
             try
             {
                 MySqlConnection connection = new MySqlConnection("datasource = localhost; port=3306; username=root; password=;database=247_rapphim");
@@ -76,19 +59,18 @@ namespace Nhom_247
                 while (reader.Read())
                 {
                     btnGhe = new Button();
-                    
+
                     btnGhe.Size = new Size(40, 40);
                     btnGhe.Text = reader.GetString("SeatNumber");
-
                     btnGhe.BackColor = Color.AliceBlue;
                     btnGhe.Click += Bt_Click;
                     pnMain.Controls.Add(btnGhe);
-                    
-                    
+
+
 
 
                 }
-                connection.Close();            }
+                connection.Close(); }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
@@ -109,6 +91,7 @@ namespace Nhom_247
             tbxNumber.ReadOnly = true;
             dtpBill.Enabled = false;
             dtpBill.Format = DateTimePickerFormat.Short;
+            tbxID_Food.Enabled = false;
         }
         private void LoadToComboBox()
         {
@@ -134,31 +117,31 @@ namespace Nhom_247
             }
 
         }
-        
+
         private void MainForm_Load(object sender, EventArgs e)
         {
             Edit_Stuff();
             Display();
-            KhoiTaoGhe(10,10);
+            KhoiTaoGhe();
             LoadToComboBox();
         }
 
         private void Bt_Click(object sender, EventArgs e)
         {
             Button btnGhe = (Button)sender;
-            tbxNumber.Text = btnGhe.Text+" ";
-          
+            tbxNumber.Text = btnGhe.Text + " ";
+
             if (btnGhe.BackColor == Color.Yellow)
             {
                 MessageBox.Show("Ghế này đã được mua!");
                 return;
             }
-            if(btnGhe.BackColor == Color.Blue)
+            if (btnGhe.BackColor == Color.Blue)
             {
                 tbxNumber.Text = string.Empty;
-            }    
+            }
             btnGhe.BackColor = (btnGhe.BackColor == Color.AliceBlue) ? Color.Blue : Color.AliceBlue;
-            
+
         }
 
         private void adminToolStripMenuItem_Click(object sender, EventArgs e)
@@ -188,7 +171,7 @@ namespace Nhom_247
             }
         }
 
-       
+
 
         private void btnConfirm_Click(object sender, EventArgs e)
         {
@@ -207,11 +190,11 @@ namespace Nhom_247
         {
         }
 
-        
+
 
         private void BtnPrintTickey_Click(object sender, EventArgs e)
         {
-           
+
             //tinh tien
             double total = 0;
             double SeatPrice = 0;
@@ -220,11 +203,12 @@ namespace Nhom_247
             {
                 if (ghe.BackColor == Color.Blue)
                 {
+
                     seatNumber = int.Parse(ghe.Text);
                     SeatPrice = TinhTien(seatNumber);
                     total += SeatPrice;
                     ghe.BackColor = Color.Yellow;
-                   
+
                 }
             }
             tbxTotal.Text = total.ToString();
@@ -233,19 +217,33 @@ namespace Nhom_247
                 MessageBox.Show("Vui  lòng chọn suất chiếu");
                 return;
             }
-            if(tbxNumber.Text == "")
+            if (tbxNumber.Text == "")
             {
                 MessageBox.Show("Vui  lòng chọn chỗ ngồi");
                 return;
 
             }
-            Bill_Model b = new Bill_Model(tbxNumber.Text.Trim(),tbxRoom.Text.Trim(),tbxMovieName.Text.Trim(), tbxTime.Text.Trim(),tbxMovieDate.Text.Trim(),tbxTotal.Text.Trim(),dtpBill.Text.Trim());
+            Bill_Model b = new Bill_Model(tbxNumber.Text.Trim(), tbxRoom.Text.Trim(), tbxMovieName.Text.Trim(), tbxTime.Text.Trim(), tbxMovieDate.Text.Trim(), tbxTotal.Text.Trim(), dtpBill.Text.Trim());
             Bill_Controller.add_Bill(b);
             Display();
-            
-        }
-      
 
+        }
+
+        public double TinhTien(int vitriGhe){
+            if (vitriGhe <=60)
+            {
+                return 60000;
+            }
+            if (vitriGhe <= 80)
+            {
+                return 80000;
+            }
+            else
+            {
+                return 100000;
+            }
+
+        }
         private void dgvTicket_CellClick(object sender, DataGridViewCellEventArgs e)
         {
 
@@ -253,42 +251,7 @@ namespace Nhom_247
             
         }
 
-        private double TinhTien(int vitriGhe)
-        {
-            if (vitriGhe <= 40)
-            {
-                return 60000;
-            }
-            else if (vitriGhe <= 80)
-            {
-                return 80000;
-            }
-            else return 100000;
-
-            //try
-            //{
-            //    MySqlConnection connection = new MySqlConnection("datasource = localhost; port=3306; username=root; password=;database=247_rapphim");
-            //    string selectQuery = "select seat.SeatNumber, seatrow.Price from seat, seatrow where seat.ID_Row = seatrow.ID_Row";
-            //    connection.Open();
-            //    MySqlCommand cmd = new MySqlCommand(selectQuery, connection);
-            //    MySqlDataReader reader = cmd.ExecuteReader();
-            //    while (reader.Read())
-            //    {
-            //        if(reader.GetInt32("seat.SeatNumber") <= 40)
-            //        {
-            //            return
-            //        }
-
-
-            //    }
-
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show(ex.Message);
-
-            //}
-        }
+       
 
         private void dgvShowtime_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -298,19 +261,42 @@ namespace Nhom_247
             tbxMovieDate.Text = dgvShowtime.Rows[e.RowIndex].Cells[5].Value.ToString();
         }
 
-        private void btnDetails_Click(object sender, EventArgs e)
-        {
-            //BillDetails_Model bd = new BillDetails_Model(tbxID_Bill.Text.Trim());
-            //BillDetails_Controller.add_BillDetails(bd);
-            //Display();
-
-        }
+     
 
         private void cbxMovieSelect_SelectedIndexChanged(object sender, EventArgs e)
         {
             Showtimes_Controller.DisplayNSearchShowTime("select * from showtimes where MovieName like '%" + cbxMovieSelect.Text + "%'", dgvShowtime);
         }
 
-      
+        private void btnPrintReport_Click(object sender, EventArgs e)
+        {
+            FormReport rp = new FormReport();
+            rp.Show();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (tbxFoodName.Text == "")
+            {
+                MessageBox.Show("Vui  lòng chọn combo");
+                return;
+            }
+            if (tbxPrice.Text == "")
+            {
+                MessageBox.Show("Vui  lòng chọn combo");
+                return;
+
+            }
+            FoodBill_Model b = new FoodBill_Model(  Convert.ToInt32(tbxID_Food.Text.Trim()),tbxFoodName.Text.Trim(),Convert.ToInt32 (tbxPrice.Text.Trim()),dtpBill.Text.Trim());
+            FoodBill_Controller.add_Bill(b);
+            Display();
+        }
+
+        private void dgvFood_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            tbxID_Food.Text = dgvFood.Rows[e.RowIndex].Cells[0].Value.ToString();
+          tbxFoodName.Text = dgvFood.Rows[e.RowIndex].Cells[1].Value.ToString();
+            tbxPrice.Text = dgvFood.Rows[e.RowIndex].Cells[2].Value.ToString();
+        }
     }
 }
