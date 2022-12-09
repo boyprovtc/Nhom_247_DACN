@@ -53,18 +53,29 @@ namespace Nhom_247
             {
                 MySqlConnection connection = new MySqlConnection("datasource = localhost; port=3306; username=root; password=;database=247_rapphim");
                 string selectQuery = "select * from seat";
+                string selectQuery2 = "select * from bill";
                 connection.Open();
                 MySqlCommand cmd = new MySqlCommand(selectQuery, connection);
+ //               MySqlCommand cmd2 = new MySqlCommand(selectQuery2, connection);
                 MySqlDataReader reader = cmd.ExecuteReader();
+  //              MySqlDataReader reader2 = cmd2.ExecuteReader();
                 while (reader.Read())
                 {
-                    btnGhe = new Button();
+                  //  while (reader2.Read())
+                    
+                        btnGhe = new Button();
 
-                    btnGhe.Size = new Size(40, 40);
-                    btnGhe.Text = reader.GetString("SeatNumber");
-                    btnGhe.BackColor = Color.AliceBlue;
-                    btnGhe.Click += Bt_Click;
-                    pnMain.Controls.Add(btnGhe);
+                        btnGhe.Size = new Size(40, 40);
+                        btnGhe.Text = reader.GetString("SeatNumber");
+                        btnGhe.BackColor = Color.AliceBlue;
+                        btnGhe.Click += Bt_Click;
+                        //if (reader.GetString("SeatNumber") == reader2.GetString("SeatNumber"))
+                        //{
+                        //    btnGhe.Enabled = false;
+                        //}
+                        pnMain.Controls.Add(btnGhe);
+                    
+                   
 
 
 
