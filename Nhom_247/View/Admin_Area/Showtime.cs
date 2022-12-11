@@ -19,6 +19,7 @@ namespace Nhom_247.View.Admin_Area
         {
             InitializeComponent();
             _parent = parent;
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
         public string id_showtimes, name,roomnumber, time,date;
         public int id_movie, id_room;
@@ -26,12 +27,12 @@ namespace Nhom_247.View.Admin_Area
         {
             btnAdd.Text = "Update";
             tbxID_Showtime.Text = id_showtimes;
-            cbxID_Movie.SelectedValue = id_movie;
-            cbxID_Room.SelectedValue = id_room;
+            cbxID_Movie.Text = id_movie.ToString();
             cbxMovie.Text = name;
             cbxRoom.Text = roomnumber;
             dtp.Text = time;
             dtpDate.Text = date;
+            
         }
 
         private void Showtime_FormClosed(object sender, FormClosedEventArgs e)
@@ -43,9 +44,11 @@ namespace Nhom_247.View.Admin_Area
             this.Hide();
         }
 
-      
-
-        
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            tbxID_Showtime.Text = cbxID_Movie.Text = cbxID_Room.Text = cbxMovie.Text = cbxRoom.Text = String.Empty;
+            btnAdd.Text = "Add";
+        }
 
         private void cbxMovie_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -63,13 +66,15 @@ namespace Nhom_247.View.Admin_Area
 
         private void Showtime_Load(object sender, EventArgs e)
         {
+            this.StartPosition = FormStartPosition.CenterScreen;
             dtp.Format = DateTimePickerFormat.Time;
-            dtpDate.Format = DateTimePickerFormat.Short;
+              dtpDate.Format = DateTimePickerFormat.Short;
             dtp.ShowUpDown = true;
             cbxID_Movie.Enabled = false;
             cbxID_Room.Enabled = false;
             tbxID_Showtime.ReadOnly = true;
             tbxID_Showtime.BackColor = Color.Aqua;
+         //   tbxID_Showtime.Text = String.Empty;
             try
             {
                 MySqlConnection connection = new MySqlConnection("datasource = localhost; port=3306; username=root; password=;database=247_rapphim");
@@ -142,12 +147,7 @@ namespace Nhom_247.View.Admin_Area
             if (btnAdd.Text == "Update")
             {
 
-                Showtimes_Model st = new Showtimes_Model(
-                    Convert.ToInt32(cbxID_Movie.Text),
-                    Convert.ToInt32(cbxID_Room.Text),
-                    cbxMovie.Text.Trim(),
-                    dtp.Text.Trim(),
-                    dtpDate.Text.Trim());
+                Showtimes_Model st = new Showtimes_Model( Convert.ToInt32(cbxID_Movie.Text), Convert.ToInt32(cbxID_Room.Text),cbxMovie.Text.Trim(),dtp.Text.Trim(),dtpDate.Text.Trim());
                 Showtimes_Controller.update_Showtime(st,id_showtimes);
                 Clear();
 

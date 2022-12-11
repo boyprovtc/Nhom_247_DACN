@@ -23,6 +23,7 @@ namespace Nhom_247
         {
             InitializeComponent();
             form1 = new Resigter(this);
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
 
         public static MySqlConnection GetConnection()
@@ -43,14 +44,14 @@ namespace Nhom_247
 
         private void Login_Load(object sender, EventArgs e)
         {
-            btnResigter.Enabled = false;
+            
             this.lblUserName.BackColor = System.Drawing.Color.Transparent;
             this.lblPassWord.BackColor = System.Drawing.Color.Transparent;
             this.btnLogin.BackColor = System.Drawing.Color.Transparent;
             this.Location = new System.Drawing.Point(500, 250);
             tbxPass.PasswordChar = '*';
-         
-          
+            this.StartPosition = FormStartPosition.CenterScreen;
+
 
 
         }

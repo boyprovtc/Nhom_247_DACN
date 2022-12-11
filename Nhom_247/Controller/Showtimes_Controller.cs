@@ -36,8 +36,9 @@ namespace Nhom_247.Controller
             cmd.Parameters.Add("@ID_Movie", MySqlDbType.Int32).Value = showtimes.ID_Movie;
             cmd.Parameters.Add("@ID_Room", MySqlDbType.Int32).Value = showtimes.ID_Room;
             cmd.Parameters.Add("@MovieName", MySqlDbType.VarChar).Value = showtimes.MovieName;
-            cmd.Parameters.Add("@TIME", MySqlDbType.VarChar).Value = showtimes.TIME;
+            
             cmd.Parameters.Add("@DATE", MySqlDbType.VarChar).Value = showtimes.DATE;
+            cmd.Parameters.Add("@TIME", MySqlDbType.VarChar).Value = showtimes.TIME;
 
 
             try
@@ -63,8 +64,9 @@ namespace Nhom_247.Controller
             cmd.Parameters.Add("@ID_Movie", MySqlDbType.Int32).Value = showtimes.ID_Movie;
             cmd.Parameters.Add("@ID_Room", MySqlDbType.Int32).Value = showtimes.ID_Room;
             cmd.Parameters.Add("@MovieName", MySqlDbType.VarChar).Value = showtimes.MovieName;
-            cmd.Parameters.Add("@TIME", MySqlDbType.VarChar).Value = showtimes.TIME;
+            
             cmd.Parameters.Add("@DATE", MySqlDbType.VarChar).Value = showtimes.DATE;
+            cmd.Parameters.Add("@TIME", MySqlDbType.VarChar).Value = showtimes.TIME;
 
 
             try

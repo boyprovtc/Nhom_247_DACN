@@ -94,6 +94,7 @@
             this.Name = "NhanVien_Info";
             this.Text = "NhanVIen_Info";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.NhanVien_Info_FormClosed);
+            this.Load += new System.EventHandler(this.NhanVien_Info_Load);
             this.Shown += new System.EventHandler(this.NhanVien_Info_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.dtNhanVien)).EndInit();
             this.ResumeLayout(false);

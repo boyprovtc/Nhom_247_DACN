@@ -22,12 +22,13 @@ namespace Nhom_247
         {
             InitializeComponent();
             _parent = parent;
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
        
         private void NhanVien_Load(object sender, EventArgs e)
         {
             tbxID.ReadOnly = true;
-           
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
 
         private void NhanVien_FormClosed(object sender, FormClosedEventArgs e)

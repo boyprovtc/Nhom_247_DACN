@@ -35,6 +35,7 @@ namespace Nhom_247
             form2 = new Food(this);
             form3 = new Movie(this);
             form4 = new Showtime(this);
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
         public void Display()
         {
@@ -46,26 +47,20 @@ namespace Nhom_247
         private void Admin_Load(object sender, EventArgs e)
         {
             WindowState = FormWindowState.Maximized;
+            this.StartPosition = FormStartPosition.CenterScreen;
             Display();
            
-        }
-       
-
-        
+        } 
         public void Clear()
         {
   //          tbxMovieName.Text = tbxMovieAbout.Text = tbxFoodName.Text = tbxFoodPrice.Text = tbxticketprice.Text = tbxtickettype.Text = String.Empty;
         }
-  
         private void tbnNhanVien_Click(object sender, EventArgs e)
         {
             NhanVien_Info nvi = new NhanVien_Info();
             nvi.Show();
             this.Hide();
         }
-
-     
-
         private void dgvFood_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.ColumnIndex == 0)
@@ -89,20 +84,17 @@ namespace Nhom_247
             }
 
         }
-
         private void btnAddFood_Click(object sender, EventArgs e)
         {
             form2.Clear();
             form2.ShowDialog();
         }
-
         private void btnMovieAdd_Click(object sender, EventArgs e)
         {
             form3.Clear();
             form3.ShowDialog();
 
         }
-
         private void dgvMovie_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.ColumnIndex == 0)
@@ -153,8 +145,8 @@ namespace Nhom_247
                 form4.id_movie = Convert.ToInt32 (dgvShowtime.Rows[e.RowIndex].Cells["ID_Movie"].Value);
                 form4.id_room = Convert.ToInt32(dgvShowtime.Rows[e.RowIndex].Cells["ID_Room"].Value);
                 form4.name = dgvShowtime.Rows[e.RowIndex].Cells["MovieName"].Value.ToString();
-                form4.time = dgvShowtime.Rows[e.RowIndex].Cells["DATE"].Value.ToString();
-                form4.date = dgvShowtime.Rows[e.RowIndex].Cells["TIME"].Value.ToString();
+                form4.date = dgvShowtime.Rows[e.RowIndex].Cells["DATE"].Value.ToString();
+                form4.time = dgvShowtime.Rows[e.RowIndex].Cells["TIME"].Value.ToString();
                
                 form4.update_info();
                 form4.ShowDialog();

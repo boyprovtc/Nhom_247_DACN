@@ -19,6 +19,7 @@ namespace Nhom_247.View.Admin_Area
         {
             InitializeComponent();
             _parent = parent;
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
         public string id, name, description;
 
@@ -55,6 +56,7 @@ namespace Nhom_247.View.Admin_Area
 
         private void Movie_Load(object sender, EventArgs e)
         {
+            this.StartPosition = FormStartPosition.CenterScreen;
             tbxIDMovie.ReadOnly = true;
         }
 

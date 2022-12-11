@@ -94,6 +94,7 @@
             this.Name = "Room_info";
             this.Text = "Room_info";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Room_info_FormClosed);
+            this.Load += new System.EventHandler(this.Room_info_Load);
             this.Shown += new System.EventHandler(this.Room_info_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.dgvRoom)).EndInit();
             this.ResumeLayout(false);

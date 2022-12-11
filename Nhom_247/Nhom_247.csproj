@@ -307,12 +307,6 @@
     <Compile Include="View\Resigter.Designer.cs">
       <DependentUpon>Resigter.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Seat.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\Seat.Designer.cs">
-      <DependentUpon>Seat.cs</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="Report\FormReport.resx">
       <DependentUpon>FormReport.cs</DependentUpon>
     </EmbeddedResource>
@@ -356,9 +350,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="View\Resigter.resx">
       <DependentUpon>Resigter.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\Seat.resx">
-      <DependentUpon>Seat.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

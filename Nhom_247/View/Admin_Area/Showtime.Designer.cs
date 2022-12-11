@@ -41,6 +41,7 @@
             this.cbxID_Room = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.tbxID_Showtime = new System.Windows.Forms.TextBox();
+            this.btnClear = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnAdd
@@ -155,6 +156,16 @@
             this.tbxID_Showtime.Size = new System.Drawing.Size(100, 20);
             this.tbxID_Showtime.TabIndex = 17;
             // 
+            // btnClear
+            // 
+            this.btnClear.Location = new System.Drawing.Point(441, 91);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(78, 26);
+            this.btnClear.TabIndex = 12;
+            this.btnClear.Text = "clear";
+            this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
+            // 
             // Showtime
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -163,6 +174,7 @@
             this.Controls.Add(this.tbxID_Showtime);
             this.Controls.Add(this.cbxID_Room);
             this.Controls.Add(this.cbxID_Movie);
+            this.Controls.Add(this.btnClear);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.dtpDate);
             this.Controls.Add(this.dtp);
@@ -197,5 +209,6 @@
         private System.Windows.Forms.ComboBox cbxID_Room;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox tbxID_Showtime;
+        private System.Windows.Forms.Button btnClear;
     }
 }

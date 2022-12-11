@@ -25,6 +25,7 @@ namespace Nhom_247.View
         {
             InitializeComponent();
             _parent = parent;
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
         public void update_info()
         {
@@ -89,6 +90,7 @@ namespace Nhom_247.View
             tbxPassword.Enabled = false;
             tbxConfirm.Enabled = false;
             btnResigter.Enabled = false;
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
 
         private void btnXacThuc_Click(object sender, EventArgs e)

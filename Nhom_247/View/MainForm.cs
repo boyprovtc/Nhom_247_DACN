@@ -8,6 +8,7 @@ using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Catel.Collections;
 using MySql.Data.MySqlClient;
 using Nhom_247.Controller;
 using Nhom_247.Model;
@@ -45,43 +46,62 @@ namespace Nhom_247
         private void KhoiTaoGhe()
         {
 
-           
-
+            
             Button btnGhe;
             
             try
             {
+                
                 MySqlConnection connection = new MySqlConnection("datasource = localhost; port=3306; username=root; password=;database=247_rapphim");
+                MySqlConnection connection2 = new MySqlConnection("datasource = localhost; port=3306; username=root; password=;database=247_rapphim");
+
                 string selectQuery = "select * from seat";
                 string selectQuery2 = "select * from bill";
                 connection.Open();
+                connection2.Open();
                 MySqlCommand cmd = new MySqlCommand(selectQuery, connection);
- //               MySqlCommand cmd2 = new MySqlCommand(selectQuery2, connection);
+                MySqlCommand cmd2 = new MySqlCommand(selectQuery2, connection2);
+                
+
                 MySqlDataReader reader = cmd.ExecuteReader();
-  //              MySqlDataReader reader2 = cmd2.ExecuteReader();
+                MySqlDataReader reader2 = cmd2.ExecuteReader();
+                List<int> list = new List<int>();
+
+                while (reader2.Read())
+                {
+                    for (int i = 0; i < Convert.ToInt32(reader2.GetString("ID_Seat")); i++)
+                    {
+                        list.Add(Convert.ToInt32(reader2.GetString("ID_Seat")));
+
+                    }
+                }
+                int[] a = list.ToArray();
                 while (reader.Read())
                 {
-                  //  while (reader2.Read())
-                    
-                        btnGhe = new Button();
 
-                        btnGhe.Size = new Size(40, 40);
-                        btnGhe.Text = reader.GetString("SeatNumber");
-                        btnGhe.BackColor = Color.AliceBlue;
-                        btnGhe.Click += Bt_Click;
-                        //if (reader.GetString("SeatNumber") == reader2.GetString("SeatNumber"))
-                        //{
-                        //    btnGhe.Enabled = false;
-                        //}
-                        pnMain.Controls.Add(btnGhe);
-                    
-                   
+                    btnGhe = new Button();
+                    btnGhe.Size = new Size(40, 40);
+                    btnGhe.Text = reader.GetString("ID_Seat");
+                    btnGhe.BackColor = Color.AliceBlue;
+                    btnGhe.Click += Bt_Click;
 
+                    for (int i = 0; i < Convert.ToInt32(reader.GetString("ID_Seat")); i++)
+                    {
+                        if (btnGhe.Text == a[i].ToString())
+                        {
+
+                            btnGhe.Enabled = false;
+                            btnGhe.BackColor = Color.Yellow;
 
 
-
+                        }
+                    }
+                    pnMain.Controls.Add(btnGhe);
                 }
-                connection.Close(); }
+
+                connection2.Close();
+                connection.Close(); 
+            }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
@@ -103,6 +123,7 @@ namespace Nhom_247
             dtpBill.Enabled = false;
             dtpBill.Format = DateTimePickerFormat.Short;
             tbxID_Food.Enabled = false;
+            
         }
         private void LoadToComboBox()
         {

@@ -21,12 +21,8 @@ namespace Nhom_247.View.Admin_Area
         {
             InitializeComponent();
             _parent = parent;
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
-
-
-
-
-
 
         private void btnRefresh_Click(object sender, EventArgs e)
         {
@@ -51,6 +47,7 @@ namespace Nhom_247.View.Admin_Area
         private void Room_Load(object sender, EventArgs e)
         {
             tbxID_Room.ReadOnly = true;
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
 
         private void btnAdd_Room_Click(object sender, EventArgs e)

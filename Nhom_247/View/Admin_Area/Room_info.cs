@@ -18,6 +18,7 @@ namespace Nhom_247.View.Admin_Area
         {
             InitializeComponent();
             form = new Room(this);
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
        
        
@@ -27,8 +28,6 @@ namespace Nhom_247.View.Admin_Area
             Room_Controller.DisplayNSearch("SELECT * FROM room", dgvRoom);
         }
        
-       
-
         private void btnNew_Click_1(object sender, EventArgs e)
         {
             form.Clear();
@@ -67,6 +66,11 @@ namespace Nhom_247.View.Admin_Area
             FormAdmin ad = new FormAdmin();
             ad.Show();
             this.Hide();
+        }
+
+        private void Room_info_Load(object sender, EventArgs e)
+        {
+           
         }
     }
 }

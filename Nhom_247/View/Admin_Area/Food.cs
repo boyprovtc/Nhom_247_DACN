@@ -21,6 +21,7 @@ namespace Nhom_247.View.Admin_Area
         {
             InitializeComponent();
             _parent = parent;
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
         //IFirebaseConfig config = new FirebaseConfig
         //{
@@ -37,7 +38,8 @@ namespace Nhom_247.View.Admin_Area
 
         private void Food_Load(object sender, EventArgs e)
         {
-           tbxFoodID.ReadOnly = true;
+            this.StartPosition = FormStartPosition.CenterScreen;
+            tbxFoodID.ReadOnly = true;
         }
 
         private async void btnFood_add_Click(object sender, EventArgs e)

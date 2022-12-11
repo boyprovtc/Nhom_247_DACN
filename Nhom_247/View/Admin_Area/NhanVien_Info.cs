@@ -19,6 +19,7 @@ namespace Nhom_247.View
         {
             InitializeComponent();
             form = new NhanVien(this);
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
         private void NhanVien_Info_Shown(object sender, EventArgs e)
         {
@@ -66,6 +67,11 @@ namespace Nhom_247.View
             FormAdmin ad = new FormAdmin();
             ad.Show();
             this.Hide();
+        }
+
+        private void NhanVien_Info_Load(object sender, EventArgs e)
+        {
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
     }
 }
